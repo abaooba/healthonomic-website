@@ -392,6 +392,10 @@
   src: url("/assets/fonts/77652991-fb54-468e-849d-0411a9805d0e.woff2") format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
+.wl-heroimg{position:absolute;top:44px;right:24px;bottom:44px;width:41%;border-radius:16px;background-size:cover;background-position:center;box-shadow:0 18px 44px rgba(16,41,74,.45);}
+.wl-heroimg::before{content:"";position:absolute;inset:0;border-radius:16px;background:linear-gradient(100deg,rgba(16,41,74,.55) 0%,rgba(16,41,74,0) 48%);}
+@media (max-width:980px){.wl-heroimg{display:none;}}
 </style>
 <style>
   *{box-sizing:border-box;}
@@ -1461,50 +1465,50 @@ class Component extends DCLogic {
 
     
     
-      <article data-dc-tpl="674" data-screen-label="Legal">
-        <section data-dc-tpl="675" style="background: rgb(21, 54, 110); padding: 54px 20px;">
-          <div data-dc-tpl="676" style="max-width: 860px; margin: 0px auto;">
-            <h1 data-dc-tpl="677" style="margin: 0px; color: rgb(255, 255, 255); font-weight: 300; font-size: 36px; line-height: 1.2;"><span class="sc-interp">Terms of Use &amp; Medical Disclaimer</span></h1>
-            <div data-dc-tpl="678" style="color: rgb(207, 224, 255); font-family: &quot;Playfair Display&quot;, Georgia, serif; font-style: italic; font-size: 19px; margin-top: 8px;"><span class="sc-interp">Healthonomic Primary Care Website</span></div>
+      <article data-dc-tpl="675" data-screen-label="Legal">
+        <section data-dc-tpl="676" style="background: rgb(21, 54, 110); padding: 54px 20px;">
+          <div data-dc-tpl="677" style="max-width: 860px; margin: 0px auto;">
+            <h1 data-dc-tpl="678" style="margin: 0px; color: rgb(255, 255, 255); font-weight: 300; font-size: 36px; line-height: 1.2;"><span class="sc-interp">Terms of Use &amp; Medical Disclaimer</span></h1>
+            <div data-dc-tpl="679" style="color: rgb(207, 224, 255); font-family: &quot;Playfair Display&quot;, Georgia, serif; font-style: italic; font-size: 19px; margin-top: 8px;"><span class="sc-interp">Healthonomic Primary Care Website</span></div>
           </div>
         </section>
-        <section data-dc-tpl="679" style="background: rgb(255, 255, 255);"><div data-dc-tpl="680" style="max-width: 860px; margin: 0px auto; padding: 44px 20px 70px;">
-          <p data-dc-tpl="681" style="margin: 0px 0px 26px; font-size: 13.5px; color: rgb(154, 163, 175);"><span class="sc-interp">Last updated: July 2026</span></p>
+        <section data-dc-tpl="680" style="background: rgb(255, 255, 255);"><div data-dc-tpl="681" style="max-width: 860px; margin: 0px auto; padding: 44px 20px 70px;">
+          <p data-dc-tpl="682" style="margin: 0px 0px 26px; font-size: 13.5px; color: rgb(154, 163, 175);"><span class="sc-interp">Last updated: July 2026</span></p>
           
-            <h2 data-dc-tpl="684" style="margin: 30px 0px 12px; font-size: 21px; font-weight: 600; color: rgb(21, 54, 110);"><span class="sc-interp">No Medical Advice</span></h2>
-            <p data-dc-tpl="686" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">The content on this website — including pages, articles, blog posts, downloadable materials, and responses from our automated chat assistant — is provided for general informational and educational purposes only. It is not medical advice, does not constitute diagnosis or treatment, and is not a substitute for the professional judgment of a physician or other qualified healthcare provider who knows your personal health history.</span></p><p data-dc-tpl="686" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">Using this website, submitting a form, or chatting with our AI assistant does not create a physician–patient relationship. That relationship is established only through an appointment with one of our providers.</span></p>
+            <h2 data-dc-tpl="685" style="margin: 30px 0px 12px; font-size: 21px; font-weight: 600; color: rgb(21, 54, 110);"><span class="sc-interp">No Medical Advice</span></h2>
+            <p data-dc-tpl="687" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">The content on this website — including pages, articles, blog posts, downloadable materials, and responses from our automated chat assistant — is provided for general informational and educational purposes only. It is not medical advice, does not constitute diagnosis or treatment, and is not a substitute for the professional judgment of a physician or other qualified healthcare provider who knows your personal health history.</span></p><p data-dc-tpl="687" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">Using this website, submitting a form, or chatting with our AI assistant does not create a physician–patient relationship. That relationship is established only through an appointment with one of our providers.</span></p>
             
           
-            <h2 data-dc-tpl="684" style="margin: 30px 0px 12px; font-size: 21px; font-weight: 600; color: rgb(21, 54, 110);"><span class="sc-interp">Emergencies</span></h2>
-            <p data-dc-tpl="686" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">If you think you may be experiencing a medical emergency, call 911 or go to the nearest emergency room immediately. Never delay seeking care, disregard professional medical advice, or rely on this website because of something you have read here. For mental health crises, call or text 988 (Suicide &amp; Crisis Lifeline).</span></p>
+            <h2 data-dc-tpl="685" style="margin: 30px 0px 12px; font-size: 21px; font-weight: 600; color: rgb(21, 54, 110);"><span class="sc-interp">Emergencies</span></h2>
+            <p data-dc-tpl="687" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">If you think you may be experiencing a medical emergency, call 911 or go to the nearest emergency room immediately. Never delay seeking care, disregard professional medical advice, or rely on this website because of something you have read here. For mental health crises, call or text 988 (Suicide &amp; Crisis Lifeline).</span></p>
             
           
-            <h2 data-dc-tpl="684" style="margin: 30px 0px 12px; font-size: 21px; font-weight: 600; color: rgb(21, 54, 110);"><span class="sc-interp">AI Chat Assistant</span></h2>
-            <p data-dc-tpl="686" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">The chat widget on this site is an automated artificial-intelligence assistant, not a human. It answers only from the content of this website, and its answers may be incomplete or contain errors. Always confirm details such as hours, insurance participation, and availability with our office, and never use the assistant for medical advice or in an emergency. Please do not enter personal, financial, or health information into the chat.</span></p>
+            <h2 data-dc-tpl="685" style="margin: 30px 0px 12px; font-size: 21px; font-weight: 600; color: rgb(21, 54, 110);"><span class="sc-interp">AI Chat Assistant</span></h2>
+            <p data-dc-tpl="687" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">The chat widget on this site is an automated artificial-intelligence assistant, not a human. It answers only from the content of this website, and its answers may be incomplete or contain errors. Always confirm details such as hours, insurance participation, and availability with our office, and never use the assistant for medical advice or in an emergency. Please do not enter personal, financial, or health information into the chat.</span></p>
             
           
-            <h2 data-dc-tpl="684" style="margin: 30px 0px 12px; font-size: 21px; font-weight: 600; color: rgb(21, 54, 110);"><span class="sc-interp">No Guarantees of Results</span></h2>
-            <p data-dc-tpl="686" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">Descriptions of our services and programs (including our medically supervised weight loss program) are illustrative. Individual results vary based on each patient’s health, condition, and adherence to a care plan, and no specific outcome is promised or guaranteed. Medications are prescribed only when clinically appropriate, after evaluation by a licensed clinician.</span></p>
+            <h2 data-dc-tpl="685" style="margin: 30px 0px 12px; font-size: 21px; font-weight: 600; color: rgb(21, 54, 110);"><span class="sc-interp">No Guarantees of Results</span></h2>
+            <p data-dc-tpl="687" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">Descriptions of our services and programs (including our medically supervised weight loss program) are illustrative. Individual results vary based on each patient’s health, condition, and adherence to a care plan, and no specific outcome is promised or guaranteed. Medications are prescribed only when clinically appropriate, after evaluation by a licensed clinician.</span></p>
             
           
-            <h2 data-dc-tpl="684" style="margin: 30px 0px 12px; font-size: 21px; font-weight: 600; color: rgb(21, 54, 110);"><span class="sc-interp">Insurance &amp; Billing</span></h2>
-            <p data-dc-tpl="686" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">The insurance plans we accept change from time to time, and participation varies by plan, product, and location. Insurance information on this site is provided for convenience and is not a guarantee of coverage; please contact our office and your insurer to verify benefits before your visit.</span></p><p data-dc-tpl="686" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">Under the federal No Surprises Act, if you are uninsured or choose not to use insurance, you have the right to receive a Good Faith Estimate of expected charges — ask our staff.</span></p>
+            <h2 data-dc-tpl="685" style="margin: 30px 0px 12px; font-size: 21px; font-weight: 600; color: rgb(21, 54, 110);"><span class="sc-interp">Insurance &amp; Billing</span></h2>
+            <p data-dc-tpl="687" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">The insurance plans we accept change from time to time, and participation varies by plan, product, and location. Insurance information on this site is provided for convenience and is not a guarantee of coverage; please contact our office and your insurer to verify benefits before your visit.</span></p><p data-dc-tpl="687" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">Under the federal No Surprises Act, if you are uninsured or choose not to use insurance, you have the right to receive a Good Faith Estimate of expected charges — ask our staff.</span></p>
             
           
-            <h2 data-dc-tpl="684" style="margin: 30px 0px 12px; font-size: 21px; font-weight: 600; color: rgb(21, 54, 110);"><span class="sc-interp">Trademarks &amp; Third-Party Links</span></h2>
-            <p data-dc-tpl="686" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">Insurance company names and logos and other third-party marks appearing on this site are the property of their respective owners and are used for identification only; no affiliation or endorsement is implied. Links to third-party websites (including our patient portal, maps, and social pages) are provided for convenience; we are not responsible for their content or privacy practices.</span></p>
+            <h2 data-dc-tpl="685" style="margin: 30px 0px 12px; font-size: 21px; font-weight: 600; color: rgb(21, 54, 110);"><span class="sc-interp">Trademarks &amp; Third-Party Links</span></h2>
+            <p data-dc-tpl="687" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">Insurance company names and logos and other third-party marks appearing on this site are the property of their respective owners and are used for identification only; no affiliation or endorsement is implied. Links to third-party websites (including our patient portal, maps, and social pages) are provided for convenience; we are not responsible for their content or privacy practices.</span></p>
             
           
-            <h2 data-dc-tpl="684" style="margin: 30px 0px 12px; font-size: 21px; font-weight: 600; color: rgb(21, 54, 110);"><span class="sc-interp">Website Provided “As Is”</span></h2>
-            <p data-dc-tpl="686" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">We work to keep this website accurate and available, but it is provided “as is” and “as available,” without warranties of any kind, to the fullest extent permitted by law. Nothing in these terms limits rights you have under applicable law, or the duties we owe you as your healthcare provider once a physician–patient relationship exists.</span></p>
+            <h2 data-dc-tpl="685" style="margin: 30px 0px 12px; font-size: 21px; font-weight: 600; color: rgb(21, 54, 110);"><span class="sc-interp">Website Provided “As Is”</span></h2>
+            <p data-dc-tpl="687" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">We work to keep this website accurate and available, but it is provided “as is” and “as available,” without warranties of any kind, to the fullest extent permitted by law. Nothing in these terms limits rights you have under applicable law, or the duties we owe you as your healthcare provider once a physician–patient relationship exists.</span></p>
             
           
-            <h2 data-dc-tpl="684" style="margin: 30px 0px 12px; font-size: 21px; font-weight: 600; color: rgb(21, 54, 110);"><span class="sc-interp">Nondiscrimination &amp; Language Assistance</span></h2>
-            <p data-dc-tpl="686" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">Healthonomic Primary Care complies with applicable federal civil rights laws and does not discriminate on the basis of race, color, national origin, age, disability, or sex. Free language assistance services are available — call 708-671-1500.</span></p><p data-dc-tpl="686" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">ATENCIÓN: si habla español, tiene a su disposición servicios gratuitos de asistencia lingüística. Llame al 708-671-1500.</span></p><p data-dc-tpl="686" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">UWAGA: Jeżeli mówisz po polsku, możesz skorzystać z bezpłatnej pomocy językowej. Zadzwoń pod numer 708-671-1500.</span></p>
+            <h2 data-dc-tpl="685" style="margin: 30px 0px 12px; font-size: 21px; font-weight: 600; color: rgb(21, 54, 110);"><span class="sc-interp">Nondiscrimination &amp; Language Assistance</span></h2>
+            <p data-dc-tpl="687" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">Healthonomic Primary Care complies with applicable federal civil rights laws and does not discriminate on the basis of race, color, national origin, age, disability, or sex. Free language assistance services are available — call 708-671-1500.</span></p><p data-dc-tpl="687" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">ATENCIÓN: si habla español, tiene a su disposición servicios gratuitos de asistencia lingüística. Llame al 708-671-1500.</span></p><p data-dc-tpl="687" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">UWAGA: Jeżeli mówisz po polsku, możesz skorzystać z bezpłatnej pomocy językowej. Zadzwoń pod numer 708-671-1500.</span></p>
             
           
-            <h2 data-dc-tpl="684" style="margin: 30px 0px 12px; font-size: 21px; font-weight: 600; color: rgb(21, 54, 110);"><span class="sc-interp">Questions</span></h2>
-            <p data-dc-tpl="686" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">Questions about these terms? Call us at 708-671-1500 (General) or 708-696-1311 (Orland Park), or ask at any of our front desks.</span></p>
+            <h2 data-dc-tpl="685" style="margin: 30px 0px 12px; font-size: 21px; font-weight: 600; color: rgb(21, 54, 110);"><span class="sc-interp">Questions</span></h2>
+            <p data-dc-tpl="687" style="margin: 0px 0px 14px; font-size: 15.5px; line-height: 1.75; color: rgb(107, 114, 128);"><span class="sc-interp">Questions about these terms? Call us at 708-671-1500 (General) or 708-696-1311 (Orland Park), or ask at any of our front desks.</span></p>
             
           
         </div></section>
@@ -1520,59 +1524,59 @@ class Component extends DCLogic {
   </main>
 
   
-  <footer data-dc-tpl="754">
-    <div data-dc-tpl="755" style="background: rgb(16, 40, 73); padding: 34px 20px; text-align: center;">
-      <a data-dc-tpl="756" href="/" aria-label="Healthonomic Primary Care home" style="display: inline-flex; align-items: center;">
-        <img data-dc-tpl="757" src="/assets/uploads/be030c07-a5d3-4e40-827a-fdbdf82b67f6.png" alt="Healthonomic Primary Care" style="height: 66px; width: auto; display: block;">
+  <footer data-dc-tpl="755">
+    <div data-dc-tpl="756" style="background: rgb(16, 40, 73); padding: 34px 20px; text-align: center;">
+      <a data-dc-tpl="757" href="/" aria-label="Healthonomic Primary Care home" style="display: inline-flex; align-items: center;">
+        <img data-dc-tpl="758" src="/assets/uploads/be030c07-a5d3-4e40-827a-fdbdf82b67f6.png" alt="Healthonomic Primary Care" style="height: 66px; width: auto; display: block;">
       </a>
     </div>
-    <div data-dc-tpl="758" style="background: rgb(21, 54, 110); color: rgb(255, 255, 255);">
-      <div data-dc-tpl="759" style="max-width: 1200px; margin: 0px auto; padding: 24px 20px; display: grid; gap: 14px; grid-template-columns: repeat(3,1fr); text-align: center;">
-        <div data-dc-tpl="760" style="font-family: &quot;Playfair Display&quot;, Georgia, serif; font-style: italic; font-size: 20px;">Orland Park Office</div>
-        <div data-dc-tpl="761" style="font-family: &quot;Playfair Display&quot;, Georgia, serif; font-style: italic; font-size: 20px;">Palos Heights Office</div>
-        <div data-dc-tpl="762" style="font-family: &quot;Playfair Display&quot;, Georgia, serif; font-style: italic; font-size: 20px; position: relative;">Evergreen Park Office <span data-dc-tpl="763" style="display: inline-block; background: rgb(87, 138, 215); color: rgb(255, 255, 255); font-family: Poppins, sans-serif; font-style: normal; font-size: 9px; font-weight: 600; letter-spacing: 1px; padding: 3px 7px; border-radius: 3px; vertical-align: middle;">NEW LOCATION</span></div>
+    <div data-dc-tpl="759" style="background: rgb(21, 54, 110); color: rgb(255, 255, 255);">
+      <div data-dc-tpl="760" style="max-width: 1200px; margin: 0px auto; padding: 24px 20px; display: grid; gap: 14px; grid-template-columns: repeat(3,1fr); text-align: center;">
+        <div data-dc-tpl="761" style="font-family: &quot;Playfair Display&quot;, Georgia, serif; font-style: italic; font-size: 20px;">Orland Park Office</div>
+        <div data-dc-tpl="762" style="font-family: &quot;Playfair Display&quot;, Georgia, serif; font-style: italic; font-size: 20px;">Palos Heights Office</div>
+        <div data-dc-tpl="763" style="font-family: &quot;Playfair Display&quot;, Georgia, serif; font-style: italic; font-size: 20px; position: relative;">Evergreen Park Office <span data-dc-tpl="764" style="display: inline-block; background: rgb(87, 138, 215); color: rgb(255, 255, 255); font-family: Poppins, sans-serif; font-style: normal; font-size: 9px; font-weight: 600; letter-spacing: 1px; padding: 3px 7px; border-radius: 3px; vertical-align: middle;">NEW LOCATION</span></div>
       </div>
     </div>
-    <div data-dc-tpl="764" style="background: rgb(255, 255, 255);">
-      <div data-dc-tpl="765" style="max-width: 1200px; margin: 0px auto; padding: 0px; display: grid; gap: 0px; grid-template-columns: repeat(3,1fr);">
-        <div data-dc-tpl="766" style="display: flex; flex-direction: column;">
-          <iframe data-dc-tpl="767" title="Orland Park map" src="https://maps.google.com/maps?q=healthonomic%20primary%20care%20orland%20park&amp;t=m&amp;z=10&amp;output=embed&amp;iwloc=near" style="width: 100%; height: 220px; border: 0px;" loading="lazy"></iframe>
-          <a data-dc-tpl="768" href="https://maps.google.com/maps?q=healthonomic%20primary%20care%20orland%20park" target="_blank" rel="noopener" style="text-align: center; padding: 10px; font-size: 13px; color: rgb(35, 81, 163); font-weight: 500;">Open in Maps</a>
+    <div data-dc-tpl="765" style="background: rgb(255, 255, 255);">
+      <div data-dc-tpl="766" style="max-width: 1200px; margin: 0px auto; padding: 0px; display: grid; gap: 0px; grid-template-columns: repeat(3,1fr);">
+        <div data-dc-tpl="767" style="display: flex; flex-direction: column;">
+          <iframe data-dc-tpl="768" title="Orland Park map" src="https://maps.google.com/maps?q=healthonomic%20primary%20care%20orland%20park&amp;t=m&amp;z=10&amp;output=embed&amp;iwloc=near" style="width: 100%; height: 220px; border: 0px;" loading="lazy"></iframe>
+          <a data-dc-tpl="769" href="https://maps.google.com/maps?q=healthonomic%20primary%20care%20orland%20park" target="_blank" rel="noopener" style="text-align: center; padding: 10px; font-size: 13px; color: rgb(35, 81, 163); font-weight: 500;">Open in Maps</a>
         </div>
-        <div data-dc-tpl="769" style="display: flex; flex-direction: column;">
-          <iframe data-dc-tpl="770" title="Palos Heights map" src="https://maps.google.com/maps?q=healthonomic%20primary%20care%20-%20palos&amp;t=m&amp;z=12&amp;output=embed&amp;iwloc=near" style="width: 100%; height: 220px; border: 0px;" loading="lazy"></iframe>
-          <a data-dc-tpl="771" href="https://maps.google.com/maps?q=healthonomic%20primary%20care%20-%20palos" target="_blank" rel="noopener" style="text-align: center; padding: 10px; font-size: 13px; color: rgb(35, 81, 163); font-weight: 500;">Open in Maps</a>
+        <div data-dc-tpl="770" style="display: flex; flex-direction: column;">
+          <iframe data-dc-tpl="771" title="Palos Heights map" src="https://maps.google.com/maps?q=healthonomic%20primary%20care%20-%20palos&amp;t=m&amp;z=12&amp;output=embed&amp;iwloc=near" style="width: 100%; height: 220px; border: 0px;" loading="lazy"></iframe>
+          <a data-dc-tpl="772" href="https://maps.google.com/maps?q=healthonomic%20primary%20care%20-%20palos" target="_blank" rel="noopener" style="text-align: center; padding: 10px; font-size: 13px; color: rgb(35, 81, 163); font-weight: 500;">Open in Maps</a>
         </div>
-        <div data-dc-tpl="772" style="display: flex; flex-direction: column;">
-          <iframe data-dc-tpl="773" title="Evergreen Park map" src="https://maps.google.com/maps?q=healthonomic%20primary%20care%20-%20evergreen%20p&amp;t=m&amp;z=14&amp;output=embed&amp;iwloc=near" style="width: 100%; height: 220px; border: 0px;" loading="lazy"></iframe>
-          <a data-dc-tpl="774" href="https://maps.google.com/maps?q=healthonomic%20primary%20care%20-%20evergreen%20p" target="_blank" rel="noopener" style="text-align: center; padding: 10px; font-size: 13px; color: rgb(35, 81, 163); font-weight: 500;">Open in Maps</a>
+        <div data-dc-tpl="773" style="display: flex; flex-direction: column;">
+          <iframe data-dc-tpl="774" title="Evergreen Park map" src="https://maps.google.com/maps?q=healthonomic%20primary%20care%20-%20evergreen%20p&amp;t=m&amp;z=14&amp;output=embed&amp;iwloc=near" style="width: 100%; height: 220px; border: 0px;" loading="lazy"></iframe>
+          <a data-dc-tpl="775" href="https://maps.google.com/maps?q=healthonomic%20primary%20care%20-%20evergreen%20p" target="_blank" rel="noopener" style="text-align: center; padding: 10px; font-size: 13px; color: rgb(35, 81, 163); font-weight: 500;">Open in Maps</a>
         </div>
       </div>
     </div>
-    <div data-dc-tpl="775" style="background: rgb(242, 244, 245); color: rgb(107, 114, 128);">
-      <div data-dc-tpl="776" style="max-width: 1200px; margin: 0px auto; padding: 30px 20px; display: grid; gap: 24px; grid-template-columns: repeat(3,1fr); font-size: 13.5px; line-height: 1.6; text-align: center;">
-        <div data-dc-tpl="777">16535 106th CT A-3,<br data-dc-tpl="778">Orland Park, IL 60467<br data-dc-tpl="779"><span data-dc-tpl="780" style="font-weight: 600; color: rgb(21, 54, 110);">Hours ▾</span></div>
-        <div data-dc-tpl="781">12050 South Harlem Ave, Suite A,<br data-dc-tpl="782">Palos Heights, IL 60463<br data-dc-tpl="783"><span data-dc-tpl="784" style="font-weight: 600; color: rgb(21, 54, 110);">Hours ▾</span></div>
-        <div data-dc-tpl="785">9401 S Pulaski Rd, Suite 101,<br data-dc-tpl="786">Evergreen Park, IL 60805<br data-dc-tpl="787"><span data-dc-tpl="788" style="font-weight: 600; color: rgb(21, 54, 110);">Hours ▾</span></div>
+    <div data-dc-tpl="776" style="background: rgb(242, 244, 245); color: rgb(107, 114, 128);">
+      <div data-dc-tpl="777" style="max-width: 1200px; margin: 0px auto; padding: 30px 20px; display: grid; gap: 24px; grid-template-columns: repeat(3,1fr); font-size: 13.5px; line-height: 1.6; text-align: center;">
+        <div data-dc-tpl="778">16535 106th CT A-3,<br data-dc-tpl="779">Orland Park, IL 60467<br data-dc-tpl="780"><span data-dc-tpl="781" style="font-weight: 600; color: rgb(21, 54, 110);">Hours ▾</span></div>
+        <div data-dc-tpl="782">12050 South Harlem Ave, Suite A,<br data-dc-tpl="783">Palos Heights, IL 60463<br data-dc-tpl="784"><span data-dc-tpl="785" style="font-weight: 600; color: rgb(21, 54, 110);">Hours ▾</span></div>
+        <div data-dc-tpl="786">9401 S Pulaski Rd, Suite 101,<br data-dc-tpl="787">Evergreen Park, IL 60805<br data-dc-tpl="788"><span data-dc-tpl="789" style="font-weight: 600; color: rgb(21, 54, 110);">Hours ▾</span></div>
       </div>
     </div>
-    <div data-dc-tpl="789" style="background: rgb(255, 255, 255); border-top: 1px solid rgb(238, 238, 238);">
-      <div data-dc-tpl="790" style="max-width: 1200px; margin: 0px auto; padding: 26px 20px 22px; text-align: center; font-size: 12.5px; color: rgb(154, 163, 175); line-height: 1.7;">
-        <p data-dc-tpl="791" style="margin: 0px 0px 10px; font-weight: 600; color: rgb(107, 114, 128);">If you are experiencing a medical emergency, call 911 or go to the nearest emergency room. Content on this website is general information only and is not medical advice.</p>
-        <p data-dc-tpl="792" style="margin: 0px 0px 14px;">Healthonomic Primary Care complies with applicable federal civil rights laws and does not discriminate on the basis of race, color, national origin, age, disability, or sex. Free language assistance: <span data-dc-tpl="793" lang="es">ATENCIÓN: si habla español, tiene a su disposición servicios gratuitos de asistencia lingüística.</span> <span data-dc-tpl="794" lang="pl">UWAGA: Jeżeli mówisz po polsku, możesz skorzystać z bezpłatnej pomocy językowej.</span> Call <a data-dc-tpl="795" href="tel:7086711500" style="color: rgb(35, 81, 163);">708-671-1500</a>.</p>
-        <div data-dc-tpl="796" style="display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: center; margin-bottom: 12px; font-size: 13px;">
-          <a data-dc-tpl="797" href="/terms/" style="color: rgb(35, 81, 163); font-weight: 500;">Terms of Use &amp; Medical Disclaimer</a>
-          <a data-dc-tpl="798" href="/privacy/" style="color: rgb(35, 81, 163); font-weight: 500;">Privacy Policy</a>
-          <a data-dc-tpl="799" href="/accessibility/" style="color: rgb(35, 81, 163); font-weight: 500;">Accessibility</a>
-          <a data-dc-tpl="800" href="/insurance-providers/" style="color: rgb(35, 81, 163); font-weight: 500;">Accepted Insurance</a>
+    <div data-dc-tpl="790" style="background: rgb(255, 255, 255); border-top: 1px solid rgb(238, 238, 238);">
+      <div data-dc-tpl="791" style="max-width: 1200px; margin: 0px auto; padding: 26px 20px 22px; text-align: center; font-size: 12.5px; color: rgb(154, 163, 175); line-height: 1.7;">
+        <p data-dc-tpl="792" style="margin: 0px 0px 10px; font-weight: 600; color: rgb(107, 114, 128);">If you are experiencing a medical emergency, call 911 or go to the nearest emergency room. Content on this website is general information only and is not medical advice.</p>
+        <p data-dc-tpl="793" style="margin: 0px 0px 14px;">Healthonomic Primary Care complies with applicable federal civil rights laws and does not discriminate on the basis of race, color, national origin, age, disability, or sex. Free language assistance: <span data-dc-tpl="794" lang="es">ATENCIÓN: si habla español, tiene a su disposición servicios gratuitos de asistencia lingüística.</span> <span data-dc-tpl="795" lang="pl">UWAGA: Jeżeli mówisz po polsku, możesz skorzystać z bezpłatnej pomocy językowej.</span> Call <a data-dc-tpl="796" href="tel:7086711500" style="color: rgb(35, 81, 163);">708-671-1500</a>.</p>
+        <div data-dc-tpl="797" style="display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: center; margin-bottom: 12px; font-size: 13px;">
+          <a data-dc-tpl="798" href="/terms/" style="color: rgb(35, 81, 163); font-weight: 500;">Terms of Use &amp; Medical Disclaimer</a>
+          <a data-dc-tpl="799" href="/privacy/" style="color: rgb(35, 81, 163); font-weight: 500;">Privacy Policy</a>
+          <a data-dc-tpl="800" href="/accessibility/" style="color: rgb(35, 81, 163); font-weight: 500;">Accessibility</a>
+          <a data-dc-tpl="801" href="/insurance-providers/" style="color: rgb(35, 81, 163); font-weight: 500;">Accepted Insurance</a>
         </div>
-        <div data-dc-tpl="801" style="font-size: 13px;">Healthonomic Primary Care © 2026 All Rights Reserved | Powered by <a data-dc-tpl="802" href="https://thatssocreative.com/" target="_blank" rel="noopener" style="color: rgb(35, 81, 163);">That's So Creative Media</a></div>
+        <div data-dc-tpl="802" style="font-size: 13px;">Healthonomic Primary Care © 2026 All Rights Reserved | Powered by <a data-dc-tpl="803" href="https://thatssocreative.com/" target="_blank" rel="noopener" style="color: rgb(35, 81, 163);">That's So Creative Media</a></div>
       </div>
     </div>
   </footer>
 
   
-  <a data-dc-tpl="803" href="https://www.facebook.com/marialentzouMDsc/" target="_blank" rel="noopener" aria-label="Facebook" style="position: fixed; left: 0px; top: 42%; z-index: 80; background: rgb(35, 81, 163); color: rgb(255, 255, 255); width: 34px; height: 44px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 20px; border-radius: 0 4px 4px 0; box-shadow: 2px 2px 8px rgba(0,0,0,.2);">f</a>
+  <a data-dc-tpl="804" href="https://www.facebook.com/marialentzouMDsc/" target="_blank" rel="noopener" aria-label="Facebook" style="position: fixed; left: 0px; top: 42%; z-index: 80; background: rgb(35, 81, 163); color: rgb(255, 255, 255); width: 34px; height: 44px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 20px; border-radius: 0 4px 4px 0; box-shadow: 2px 2px 8px rgba(0,0,0,.2);">f</a>
 
   
   </div></div></div>
