@@ -669,12 +669,12 @@ class Component extends DCLogic {
       'Dr. Lentzou graduated at the top of her class at the University of Athens and reached the top 10% during her residency at the University of Illinois at Chicago Medical School. She earned her board certification in internal care in 2000 and has been practicing for over 17 years.',
       'As the founder and president of her multi-location medical group, Dr. Lentzou has established her health care services In Orland Park and Palos Heights. The medical group is affiliated with Advocate Physician Partners, Advocate Christ Hospital, and Palos Health.',
       'Dr. Lentzou is an active member of her community in the southwest suburbs of Chicago. She speaks English, Greek, and Spanish. She volunteers at her church every Saturday, and her faith is the driving force behind her dedication to providing excellent healthcare to those she serves.' ]},
-    { name:'Theresa Malinowski, FNP', specialty:'Family Medicine', img:this.IMG+'theresa.png', bio:[
+    { name:'Theresa Malinowski, FNP-BC', specialty:'Family Medicine', img:this.IMG+'theresa.png', bio:[
       'Theresa Malinowski is a board-certified Family Nurse Practitioner who places a strong emphasis on attentive patient care and a holistic approach to promoting overall wellness. With a Bachelor of Science in Nursing degree from the University of Illinois Chicago and a Master\u2019s degree in Family Nursing Practice from Ball State University, Theresa graduated with the highest honors, summa cum laude, from both institutions. She holds dual certifications from reputable accrediting bodies, AANP and ANCC.',
       'Over the course of the past 12 years, Theresa has dedicated her career to the field of nursing. Her extensive experience includes a significant tenure at the University of Chicago Hospital, specializing in acute care and focusing on patients with cardiac, thoracic, vascular, and transplant-related conditions. Additionally, she has worked with patient populations managing chronic and co-morbid disease processes. Theresa\u2019s commitment to excellence is underscored by her progressive care certification, demonstrating her ability to care for some of the most critically ill patients.',
       'Theresa is deeply passionate about disease prevention and primary care, firmly believing in a holistic approach to patient well-being. Her compassionate and empathetic nature fosters strong relationships built on trust with her patients, which she considers one of her highest priorities. Theresa is dedicated to collaborating with her patients to help them achieve their overall health objectives.',
       'Outside of her professional life, Theresa resides in the southwest suburbs and is a mother of two school-age children. Her free time is spent keeping up with her active children and reflecting on her gymnastics background, where she was once a competitive gymnast and later coached competitive gymnastics during her undergraduate years. Theresa\u2019s love for the sport remains an integral part of her identity. Beyond gymnastics, she enjoys cooking, gardening, spending quality time with friends and family, maintaining an active lifestyle, and attending church services on Sundays.' ]},
-    { name:'Lena Charles, FNP', specialty:'Family Medicine', img:this.IMG+'lena.png', bio:[
+    { name:'Lena Charles, MSN, APRN, FNP-BC, CCM', specialty:'Family Medicine', img:this.IMG+'lena.png', bio:[
       'Lena is a board-certified Family Nurse Practitioner who completed her training at DePaul University, graduating Summa Cum Laude. She brings over 13 years of nursing experience across a variety of healthcare settings and is also a board-certified case manager, giving her a unique perspective on clinical care and experience coordinating resources to support patient well-being.',
       'Having spent part of her childhood in Spain, Lena is Spanish speaking and enjoys working with people from diverse backgrounds. She has done extensive volunteer work within refugee communities which has deepened her commitment to providing compassionate care. She has a special clinical interest in the use of diet, nutrition, and exercise to help manage and prevent chronic disease, and is dedicated to fostering strong relationships with her patients.',
       'Outside of her work in primary care, Lena has been a lifelong dancer: beginning with ballet and tap, expanding into jazz, and later exploring ballroom and social styles. She continues to share her love of movement through teaching Zumba and kickboxing. Lena is also an avid snowboarder and cyclist. She resides in Chicago with her family and their french bulldog, Guapo.' ]},
@@ -944,52 +944,49 @@ class Component extends DCLogic {
   ]; }
 
   get LOCATIONS(){ const I=this.IMG; return [
-    { slug:'orland-park', name:'Orland Park Office', banner:I+'healthonomic-orland-park-location-1024x258.jpg',
+    { slug:'orland-park', name:'Orland Park Office', providers:[{name:'Dr. Maria Lentzou, MD',specialty:'Internal Medicine'},{name:'Zaneta Wojas, MSN, FNP-BC, FNP-C',specialty:'Family Medicine'},{name:'Ewelina Tatar, MSN, APRN, FNP-C',specialty:'Family Medicine'}], banner:I+'healthonomic-orland-park-location-1024x258.jpg',
       h1:'Orland Park Clinic', sub:'Healthonomic Primary Care',
       intro:["Healthonomic Primary Care has three locations in the Chicago area. One of our main locations is proud to serve the Orland Park community. And just like our other locations, the Orland Park doctors office is staffed with a highly-qualified primary care physician and family doctor that is ready to serve you. Our physicians specialize in internal medicine, family medicine, and women's health. Our goal is to be available when you need us most. It's why we are a walk-in clinic that also offers same-day appointments and accepts most forms of insurance and medical coverage."],
-      servicesHeading:'Services We Offer — Primary Care for Adults in Palos Heights',
-      servicesParas:['Our Orland Park clinic provides comprehensive primary care for adults, including women\u2019s health and urgent care services, with personalized treatment plans for each patient.'],
+      servicesHeading:'Services We Offer — Primary Care for Adults in Orland Park',
+      servicesParas:['Our Orland Park clinic provides comprehensive primary care for adults, including women\u2019s health and same-day care services, with personalized treatment plans for each patient.'],
       accordions:[
-        {title:'We offer:', items:['Primary care','Women\u2019s Health services','Urgent Care services','Treatment plans']},
+        {title:'We offer:', items:['Primary care','Women\u2019s Health services','Same-Day Care services','Treatment plans']},
         {title:'Some of the common conditions we treat include but are not limited to:', items:['Diabetes','Asthma','Arthritis','COPD','Blood Pressure','Heart Disease','Gout','Colitis']}
       ],
-      book:{title:'Book Your Appointment with Dr. Maria Lentzou, Today!', img:I+'Dr.-Maria.png', paras:['Dr. Maria Lentzou and our team are ready to welcome you to our Orland Park clinic. Schedule your visit and begin your path to better health.']},
+      book:{title:'Book Your Appointment Today!', img:I+'Dr.-Maria.png', paras:['Our team is ready to welcome you to our Orland Park clinic. Schedule your visit and begin your path to better health.']},
       address:'16535 106th CT A-3, Orland Park, IL 60467',
-      hours:['Sun: Closed','Mon: 8am\u20136pm','Tue: 7am\u20136pm','Wed & Thu: 8am\u20134pm','Fri: 8am\u20132:30pm','Sat: 1st & last Saturday of each month'],
+      hours:['Sun: Closed','Mon: 8am\u20136pm','Tue: 7am\u20136pm','Wed: 8am\u20134pm','Thu: 8am\u20134pm','Fri: 8am\u20132pm','Sat: 8am\u20132pm (1st & last Saturday of each month)'],
       phone:'708-696-1311', phoneHref:'tel:7086961311',
-      directions:[
-        {title:'From Downtown Chicago.', body:'If you\u2019re coming from the downtown Chicago area: Take the Interstate 55 S exit toward St. Louis. Take Exit 279A -27. B to merge onto US-12 South La Grange Road. Use the right 2 lanes to turn slightly right onto US-12 E/US-20 E/US-45 S/South La Grange Road (signs for La Grange Road/Archer Avenue). Use the left 2 lanes to turn left onto W 143rd St. Turn right onto John Humphrey Dr. Turn right at S 94th Ave. Turn right.'},
-        {title:'From Bolingbrook, Illinois.', body:'Drive from N Bolingbrook Dr, I-55 N and I-355 S to Homer Township. Take exit 7 from I-355 S. Head south on N Bolingbrook Dr toward W Briarcliff Rd. Use the left 2 lanes to turn left onto the Interstate 55 N ramp to Chicago. Merge onto I-55 N. Take exit 269 for I-355 toward NW Suburbs/SW Suburbs. Keep right at the fork, follow signs for Interstate 355 S/Southwest Suburbs and merge onto I-355 S. Take exit 7 for IL-171/Archer Ave toward 143rd St. Keep left to continue toward W 143rd St/Orland Park Rd. Use the left lane to keep left at the fork and continue toward W 143rd St/Orland Park Rd. Turn left onto W 143rd St/Orland Park Rd. Continue straight to stay on W 143rd St/Orland Park Rd. Continue on W 143rd St to your destination.'}
-      ],
+      directions:[{title:'Getting Here',body:'Our Orland Park office is located at 16535 106th Ct #A-3, Orland Park, IL 60467. Use the map above or your preferred navigation app for turn-by-turn directions to our door.'}],
       next:{slug:'palos-heights', label:'Palos Heights'} },
 
-    { slug:'palos-heights', name:'Palos Heights Office', banner:I+'healthonomics-banner-building.jpg',
+    { slug:'palos-heights', name:'Palos Heights Office', providers:[{name:'Theresa Malinowski, FNP-BC',specialty:'Family Medicine'}], banner:I+'healthonomics-banner-building.jpg',
       h1:'Palos Heights Clinic', sub:'Healthonomic Primary Care',
       intro:['Healthonomic Primary Care has three locations in the Chicago area, proudly serving the Palos Heights community. Our physicians specialize in internal medicine, family medicine, and women\u2019s health.'],
       servicesHeading:'Services We Offer',
-      servicesParas:['We are not currently seeing patients at this location.'],
+      servicesParas:['Our Palos Heights clinic provides comprehensive primary care for adults, including women\u2019s health and same-day care services, with personalized treatment plans for each patient.'],
       accordions:[
-        {title:'We offer:', items:['Primary care','Women\u2019s Health services','Urgent Care services','Treatment plans']},
+        {title:'We offer:', items:['Primary care','Women\u2019s Health services','Same-Day Care services','Treatment plans']},
         {title:'Some of the common conditions we treat include but are not limited to:', items:['Diabetes','Asthma','Arthritis','COPD','Blood Pressure','Heart Disease','Gout','Colitis']}
       ],
       book:null,
       address:'12050 South Harlem Ave, Suite A, Palos Heights, IL 60463',
-      hours:['We are not currently seeing patients at this location.'],
+      hours:['Sun: Closed','Mon: 10am–6pm','Tue: 8:30am–4:30pm','Wed: Closed','Thu: Closed','Fri: Closed','Sat: Closed'],
       phone:'', phoneHref:'',
       directions:[], next:{slug:'evergreen-park', label:'Evergreen Park'} },
 
-    { slug:'evergreen-park', name:'Evergreen Park Office', banner:I+'healthonomics-banner-building.jpg',
+    { slug:'evergreen-park', name:'Evergreen Park Office', providers:[{name:'Lena Charles, MSN, APRN, FNP-BC, CCM',specialty:'Family Medicine'},{name:'Dr. Yesenia Bahena, MD',specialty:'Board-Certified Family Medicine Physician'}], banner:I+'healthonomics-banner-building.jpg',
       h1:'Evergreen Park Clinic', sub:'Healthonomic Primary Care',
       intro:['Healthonomic Primary Care is proud to announce our new location serving the Evergreen Park community. Just like our other locations, our Evergreen Park doctors office is staffed with a highly-qualified primary care physician and family doctor ready to serve you.'],
       servicesHeading:'Services We Offer',
-      servicesParas:['Our Evergreen Park clinic provides comprehensive primary care for adults, including women\u2019s health and urgent care services, with personalized treatment plans for each patient.'],
+      servicesParas:['Our Evergreen Park clinic provides comprehensive primary care for adults, including women\u2019s health and same-day care services, with personalized treatment plans for each patient.'],
       accordions:[
-        {title:'We offer:', items:['Primary care','Women\u2019s Health services','Urgent Care services','Treatment plans']},
+        {title:'We offer:', items:['Primary care','Women\u2019s Health services','Same-Day Care services','Treatment plans']},
         {title:'Some of the common conditions we treat include but are not limited to:', items:['Diabetes','Asthma','Arthritis','COPD','Blood Pressure','Heart Disease','Gout','Colitis']}
       ],
       book:{title:'Book Your Appointment Today!', img:I+'Dr.-Maria.png', paras:['Our team is ready to welcome you to our new Evergreen Park clinic. Schedule your visit and begin your path to better health.']},
       address:'9401 S Pulaski Rd, Suite 101, Evergreen Park, IL 60805',
-      hours:['Sun: Closed','Mon\u2013Wed: 8am\u20134:30pm','Thu: 10am\u20136pm','Fri: 8am\u20132pm','Sat: 8am\u20132pm (3rd Saturday of the month)'],
+      hours:['Sun: Closed','Mon: 8am\u20134:30pm','Tue: 8am\u20134:30pm','Wed: 8am\u20134:30pm','Thu: 10am\u20136pm','Fri: 8am\u20132:30pm','Sat: 8am\u20132:30pm (3rd Saturday of the month)'],
       phone:'708-671-1500', phoneHref:'tel:7086711500',
       directions:[], next:null }
   ]; }
@@ -1238,14 +1235,13 @@ class Component extends DCLogic {
       isForms: route==='forms',
       formsGridCols: isMobile ? 'repeat(2,1fr)' : (isTablet ? 'repeat(3,1fr)' : 'repeat(4,1fr)'),
       formsList: [
-        {label:'Patient Registration Form', icon:this.res('assets/forms/icon-registration.png'),   pdf:this.res('assets/forms/patient-registration.pdf')},
-        {label:'Chair Exercises',           icon:this.res('assets/forms/icon-chair.png'),          pdf:this.res('assets/forms/chair-exercises.pdf')},
-        {label:'Healthy Meals',             icon:this.res('assets/forms/icon-meals.png'),          pdf:this.res('assets/forms/healthy-meals.pdf')},
-        {label:'Blood Sugar Log',           icon:this.res('assets/forms/icon-bloodsugar.png'),     pdf:this.res('assets/forms/blood-sugar-log.pdf')},
-        {label:'Behavioral Resources',      icon:this.res('assets/forms/icon-behavioral.png'),     pdf:this.res('assets/forms/behavioral-resources.pdf')},
-        {label:'Sun Safety',                icon:this.res('assets/forms/icon-sun.png'),            pdf:this.res('assets/forms/sun-safety.pdf')},
-        {label:'Blood Pressure Log',        icon:this.res('assets/forms/icon-bloodpressure.png'),  pdf:this.res('assets/forms/blood-pressure-log.pdf')},
-        {label:'Daily Medication Log',      icon:this.res('assets/forms/icon-medication.png'),     pdf:this.res('assets/forms/daily-medication-log.pdf')}
+        {label:'Chair Exercises',           icon:this.res('/assets/forms/icon-chair.png'),          pdf:this.res('/assets/forms/chair-exercises.pdf')},
+        {label:'Healthy Meals',             icon:this.res('/assets/forms/icon-meals.png'),          pdf:this.res('/assets/forms/healthy-meals.pdf')},
+        {label:'Blood Sugar Log',           icon:this.res('/assets/forms/icon-bloodsugar.png'),     pdf:this.res('/assets/forms/blood-sugar-log.pdf')},
+        {label:'Behavioral Resources',      icon:this.res('/assets/forms/icon-behavioral.png'),     pdf:this.res('/assets/forms/behavioral-resources.pdf')},
+        {label:'Sun Safety',                icon:this.res('/assets/forms/icon-sun.png'),            pdf:this.res('/assets/forms/sun-safety.pdf')},
+        {label:'Blood Pressure Log',        icon:this.res('/assets/forms/icon-bloodpressure.png'),  pdf:this.res('/assets/forms/blood-pressure-log.pdf')},
+        {label:'Daily Medication Log',      icon:this.res('/assets/forms/icon-medication.png'),     pdf:this.res('/assets/forms/daily-medication-log.pdf')}
       ],
 
       currentService: cs || null,
@@ -1666,45 +1662,45 @@ class Component extends DCLogic {
     </div>
     <div data-dc-tpl="759" style="background: rgb(21, 54, 110); color: rgb(255, 255, 255);">
       <div data-dc-tpl="760" style="max-width: 1200px; margin: 0px auto; padding: 24px 20px; display: grid; gap: 14px; grid-template-columns: repeat(3,1fr); text-align: center;">
-        <div data-dc-tpl="761" style="font-family: &quot;Playfair Display&quot;, Georgia, serif; font-style: italic; font-size: 20px;">Orland Park Office</div>
+        <div data-dc-tpl="761" style="font-family: &quot;Playfair Display&quot;, Georgia, serif; font-style: italic; font-size: 20px; position: relative;">Orland Park Office <span data-dc-tpl="764" style="display: inline-block; background: rgb(87, 138, 215); color: rgb(255, 255, 255); font-family: Poppins, sans-serif; font-style: normal; font-size: 9px; font-weight: 600; letter-spacing: 1px; padding: 3px 7px; border-radius: 3px; vertical-align: middle;">NEW LOCATION</span></div>
         <div data-dc-tpl="762" style="font-family: &quot;Playfair Display&quot;, Georgia, serif; font-style: italic; font-size: 20px;">Palos Heights Office</div>
-        <div data-dc-tpl="763" style="font-family: &quot;Playfair Display&quot;, Georgia, serif; font-style: italic; font-size: 20px; position: relative;">Evergreen Park Office <span data-dc-tpl="764" style="display: inline-block; background: rgb(87, 138, 215); color: rgb(255, 255, 255); font-family: Poppins, sans-serif; font-style: normal; font-size: 9px; font-weight: 600; letter-spacing: 1px; padding: 3px 7px; border-radius: 3px; vertical-align: middle;">NEW LOCATION</span></div>
+        <div data-dc-tpl="763" style="font-family: &quot;Playfair Display&quot;, Georgia, serif; font-style: italic; font-size: 20px;">Evergreen Park Office</div>
       </div>
     </div>
     <div data-dc-tpl="765" style="background: rgb(255, 255, 255);">
       <div data-dc-tpl="766" style="max-width: 1200px; margin: 0px auto; padding: 0px; display: grid; gap: 0px; grid-template-columns: repeat(3,1fr);">
         <div data-dc-tpl="767" style="display: flex; flex-direction: column;">
-          <iframe data-dc-tpl="768" title="Orland Park map" src="https://maps.google.com/maps?q=healthonomic%20primary%20care%20orland%20park&amp;t=m&amp;z=10&amp;output=embed&amp;iwloc=near" style="width: 100%; height: 220px; border: 0px;" loading="lazy"></iframe>
-          <a data-dc-tpl="769" href="https://maps.google.com/maps?q=healthonomic%20primary%20care%20orland%20park" target="_blank" rel="noopener" style="text-align: center; padding: 10px; font-size: 13px; color: rgb(35, 81, 163); font-weight: 500;">Open in Maps</a>
+          <iframe data-dc-tpl="768" title="Orland Park map" src="https://maps.google.com/maps?q=16535%20106th%20CT%20A-3%2C%20Orland%20Park%2C%20IL%2060467&amp;t=m&amp;z=10&amp;output=embed&amp;iwloc=near" style="width: 100%; height: 220px; border: 0px;" loading="lazy"></iframe>
+          <a data-dc-tpl="769" href="https://maps.google.com/maps?q=16535%20106th%20CT%20A-3%2C%20Orland%20Park%2C%20IL%2060467" target="_blank" rel="noopener" style="text-align: center; padding: 10px; font-size: 13px; color: rgb(35, 81, 163); font-weight: 500;">Open in Maps</a>
         </div>
         <div data-dc-tpl="770" style="display: flex; flex-direction: column;">
-          <iframe data-dc-tpl="771" title="Palos Heights map" src="https://maps.google.com/maps?q=healthonomic%20primary%20care%20-%20palos&amp;t=m&amp;z=12&amp;output=embed&amp;iwloc=near" style="width: 100%; height: 220px; border: 0px;" loading="lazy"></iframe>
-          <a data-dc-tpl="772" href="https://maps.google.com/maps?q=healthonomic%20primary%20care%20-%20palos" target="_blank" rel="noopener" style="text-align: center; padding: 10px; font-size: 13px; color: rgb(35, 81, 163); font-weight: 500;">Open in Maps</a>
+          <iframe data-dc-tpl="771" title="Palos Heights map" src="https://maps.google.com/maps?q=12050%20South%20Harlem%20Ave%2C%20Suite%20A%2C%20Palos%20Heights%2C%20IL%2060463&amp;t=m&amp;z=12&amp;output=embed&amp;iwloc=near" style="width: 100%; height: 220px; border: 0px;" loading="lazy"></iframe>
+          <a data-dc-tpl="772" href="https://maps.google.com/maps?q=12050%20South%20Harlem%20Ave%2C%20Suite%20A%2C%20Palos%20Heights%2C%20IL%2060463" target="_blank" rel="noopener" style="text-align: center; padding: 10px; font-size: 13px; color: rgb(35, 81, 163); font-weight: 500;">Open in Maps</a>
         </div>
         <div data-dc-tpl="773" style="display: flex; flex-direction: column;">
-          <iframe data-dc-tpl="774" title="Evergreen Park map" src="https://maps.google.com/maps?q=healthonomic%20primary%20care%20-%20evergreen%20p&amp;t=m&amp;z=14&amp;output=embed&amp;iwloc=near" style="width: 100%; height: 220px; border: 0px;" loading="lazy"></iframe>
-          <a data-dc-tpl="775" href="https://maps.google.com/maps?q=healthonomic%20primary%20care%20-%20evergreen%20p" target="_blank" rel="noopener" style="text-align: center; padding: 10px; font-size: 13px; color: rgb(35, 81, 163); font-weight: 500;">Open in Maps</a>
+          <iframe data-dc-tpl="774" title="Evergreen Park map" src="https://maps.google.com/maps?q=9401%20S%20Pulaski%20Rd%2C%20Suite%20101%2C%20Evergreen%20Park%2C%20IL%2060805&amp;t=m&amp;z=14&amp;output=embed&amp;iwloc=near" style="width: 100%; height: 220px; border: 0px;" loading="lazy"></iframe>
+          <a data-dc-tpl="775" href="https://maps.google.com/maps?q=9401%20S%20Pulaski%20Rd%2C%20Suite%20101%2C%20Evergreen%20Park%2C%20IL%2060805" target="_blank" rel="noopener" style="text-align: center; padding: 10px; font-size: 13px; color: rgb(35, 81, 163); font-weight: 500;">Open in Maps</a>
         </div>
       </div>
     </div>
     <div data-dc-tpl="776" style="background: rgb(242, 244, 245); color: rgb(107, 114, 128);">
       <div data-dc-tpl="777" style="max-width: 1200px; margin: 0px auto; padding: 30px 20px; display: grid; gap: 24px; grid-template-columns: repeat(3,1fr); font-size: 13.5px; line-height: 1.6; text-align: center;">
-        <div data-dc-tpl="778">16535 106th CT A-3,<br data-dc-tpl="779">Orland Park, IL 60467<br data-dc-tpl="780"><span data-dc-tpl="781" style="font-weight: 600; color: rgb(21, 54, 110);">Hours ▾</span></div>
-        <div data-dc-tpl="782">12050 South Harlem Ave, Suite A,<br data-dc-tpl="783">Palos Heights, IL 60463<br data-dc-tpl="784"><span data-dc-tpl="785" style="font-weight: 600; color: rgb(21, 54, 110);">Hours ▾</span></div>
-        <div data-dc-tpl="786">9401 S Pulaski Rd, Suite 101,<br data-dc-tpl="787">Evergreen Park, IL 60805<br data-dc-tpl="788"><span data-dc-tpl="789" style="font-weight: 600; color: rgb(21, 54, 110);">Hours ▾</span></div>
+        <div data-dc-tpl="778">16535 106th CT A-3,<br data-dc-tpl="779">Orland Park, IL 60467<br data-dc-tpl="780"><details style="margin-top: 6px;"><summary style="font-weight: 600; color: rgb(21, 54, 110); cursor: pointer;">Hours ▾</summary><div style="margin-top: 6px; font-weight: 400; color: rgb(107, 114, 128); line-height: 1.7;">Sun: Closed<br>Mon: 8am–6pm<br>Tue: 7am–6pm<br>Wed: 8am–4pm<br>Thu: 8am–4pm<br>Fri: 8am–2pm<br>Sat: 8am–2pm (1st &amp; last Sat/month)</div></details></div>
+        <div data-dc-tpl="782">12050 South Harlem Ave, Suite A,<br data-dc-tpl="783">Palos Heights, IL 60463<br data-dc-tpl="784"><details style="margin-top: 6px;"><summary style="font-weight: 600; color: rgb(21, 54, 110); cursor: pointer;">Hours ▾</summary><div style="margin-top: 6px; font-weight: 400; color: rgb(107, 114, 128); line-height: 1.7;">Sun: Closed<br>Mon: 10am–6pm<br>Tue: 8:30am–4:30pm<br>Wed: Closed<br>Thu: Closed<br>Fri: Closed<br>Sat: Closed</div></details></div>
+        <div data-dc-tpl="786">9401 S Pulaski Rd, Suite 101,<br data-dc-tpl="787">Evergreen Park, IL 60805<br data-dc-tpl="788"><details style="margin-top: 6px;"><summary style="font-weight: 600; color: rgb(21, 54, 110); cursor: pointer;">Hours ▾</summary><div style="margin-top: 6px; font-weight: 400; color: rgb(107, 114, 128); line-height: 1.7;">Sun: Closed<br>Mon: 8am–4:30pm<br>Tue: 8am–4:30pm<br>Wed: 8am–4:30pm<br>Thu: 10am–6pm<br>Fri: 8am–2:30pm<br>Sat: 8am–2:30pm (3rd Sat/month)</div></details></div>
       </div>
     </div>
     <div data-dc-tpl="790" style="background: rgb(255, 255, 255); border-top: 1px solid rgb(238, 238, 238);">
       <div data-dc-tpl="791" style="max-width: 1200px; margin: 0px auto; padding: 26px 20px 22px; text-align: center; font-size: 12.5px; color: rgb(154, 163, 175); line-height: 1.7;">
         <p data-dc-tpl="792" style="margin: 0px 0px 10px; font-weight: 600; color: rgb(107, 114, 128);">If you are experiencing a medical emergency, call 911 or go to the nearest emergency room. Content on this website is general information only and is not medical advice.</p>
-        <p data-dc-tpl="793" style="margin: 0px 0px 14px;">Healthonomic Primary Care complies with applicable federal civil rights laws and does not discriminate on the basis of race, color, national origin, age, disability, or sex. Free language assistance: <span data-dc-tpl="794" lang="es">ATENCIÓN: si habla español, tiene a su disposición servicios gratuitos de asistencia lingüística.</span> <span data-dc-tpl="795" lang="pl">UWAGA: Jeżeli mówisz po polsku, możesz skorzystać z bezpłatnej pomocy językowej.</span> Call <a data-dc-tpl="796" href="tel:7086711500" style="color: rgb(35, 81, 163);">708-671-1500</a>.</p>
+        <p data-dc-tpl="793" style="margin: 0px 0px 14px;">Healthonomic Primary Care complies with applicable federal civil rights laws and does not discriminate on the basis of race, color, national origin, age, disability, or sex. Free language assistance: <span data-dc-tpl="794" lang="es">ATENCIÓN: si habla español, tiene a su disposición servicios gratuitos de asistencia lingüística.</span> <span data-dc-tpl="795" lang="pl">UWAGA: Jeżeli mówisz po polsku, możesz skorzystać z bezpłatnej pomocy językowej.</span> <span lang="el">ΠΡΟΣΟΧΗ: Εάν μιλάτε ελληνικά, στη διάθεσή σας βρίσκονται υπηρεσίες γλωσσικής υποστήριξης, δωρεάν.</span> Call <a data-dc-tpl="796" href="tel:7086711500" style="color: rgb(35, 81, 163);">708-671-1500</a>.</p>
         <div data-dc-tpl="797" style="display: flex; flex-wrap: wrap; gap: 6px 18px; justify-content: center; margin-bottom: 12px; font-size: 13px;">
           <a data-dc-tpl="798" href="/terms/" style="color: rgb(35, 81, 163); font-weight: 500;">Terms of Use &amp; Medical Disclaimer</a>
           <a data-dc-tpl="799" href="/privacy/" style="color: rgb(35, 81, 163); font-weight: 500;">Privacy Policy</a>
           <a data-dc-tpl="800" href="/accessibility/" style="color: rgb(35, 81, 163); font-weight: 500;">Accessibility</a>
           <a data-dc-tpl="801" href="/insurance-providers/" style="color: rgb(35, 81, 163); font-weight: 500;">Accepted Insurance</a>
         </div>
-        <div data-dc-tpl="802" style="font-size: 13px;">Healthonomic Primary Care © 2026 All Rights Reserved | Powered by <a data-dc-tpl="803" href="https://thatssocreative.com/" target="_blank" rel="noopener" style="color: rgb(35, 81, 163);">That's So Creative Media</a></div>
+        <div data-dc-tpl="802" style="font-size: 13px;">Healthonomic Primary Care © 2026 All Rights Reserved</div>
       </div>
     </div>
   </footer>

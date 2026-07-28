@@ -37,3 +37,22 @@ curl -sfO "https://healthonomic.com/wp-content/uploads/AdobeStock_100836078-1536
 curl -sfO "https://healthonomic.com/wp-content/uploads/AdobeStock_121790612-1536x1192.jpeg" || echo "FAILED: https://healthonomic.com/wp-content/uploads/AdobeStock_121790612-1536x1192.jpeg"
 curl -sfO "https://healthonomic.com/wp-content/uploads/AdobeStock_320398572-1536x518.jpeg" || echo "FAILED: https://healthonomic.com/wp-content/uploads/AdobeStock_320398572-1536x518.jpeg"
 echo "done: $(ls | wc -l) files in assets/uploads"
+
+# --- assets/forms/ guard ---------------------------------------------------
+# The 7 patient-form PDFs + 7 icons are repo-tracked and CANNOT be downloaded:
+# they 404 on the live site. Listed here so the asset step accounts for them.
+# This is a presence check, not a fetch.
+cd "$(dirname "$0")"
+FORMS="chair-exercises.pdf healthy-meals.pdf blood-sugar-log.pdf \
+behavioral-resources.pdf sun-safety.pdf blood-pressure-log.pdf \
+daily-medication-log.pdf icon-chair.png icon-meals.png icon-bloodsugar.png \
+icon-behavioral.png icon-sun.png icon-bloodpressure.png icon-medication.png"
+missing=0
+for f in $FORMS; do
+  [ -s "assets/forms/$f" ] || { echo "MISSING: assets/forms/$f"; missing=1; }
+done
+if [ "$missing" -eq 0 ]; then
+  echo "ok: all 14 files present in assets/forms"
+else
+  echo "ERROR: assets/forms incomplete - restore from git, do not re-download"
+fi

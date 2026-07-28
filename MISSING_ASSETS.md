@@ -1,4 +1,26 @@
 # Assets to download from live WP before cutover
+
+## Patient forms — RESOLVED, `assets/forms/` is now committed
+These 14 files are tracked in this repo and are **not** downloadable from the
+live site (the whole `/wp-content/uploads/` tree is gone). They must be carried
+forward by hand on any re-export — a collector that only walks WordPress media
+will silently drop them again, which is exactly how they went missing.
+
+- chair-exercises.pdf + icon-chair.png
+- healthy-meals.pdf + icon-meals.png
+- blood-sugar-log.pdf + icon-bloodsugar.png
+- behavioral-resources.pdf + icon-behavioral.png
+- sun-safety.pdf + icon-sun.png
+- blood-pressure-log.pdf + icon-bloodpressure.png
+- daily-medication-log.pdf + icon-medication.png
+
+Do not put them in Git LFS — a host that doesn't fetch LFS objects would serve
+pointer text instead of PDFs and reproduce the original bug.
+
+(The Patient Registration Form was removed from the page per request — do not
+re-add it or its icon.)
+
+## Uploads
 Save each into assets/uploads/ with the same filename:
 
 - https://healthonomic.com/wp-content/uploads/june-summerheat-blog.png
