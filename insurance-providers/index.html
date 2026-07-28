@@ -950,7 +950,7 @@ class Component extends DCLogic {
       servicesHeading:'Services We Offer — Primary Care for Adults in Orland Park',
       servicesParas:['Our Orland Park clinic provides comprehensive primary care for adults, including women\u2019s health and same-day care services, with personalized treatment plans for each patient.'],
       accordions:[
-        {title:'We offer:', items:['Primary care','Women\u2019s Health services','Same-Day Care services','Treatment plans']},
+        {title:'We offer:', items:['Primary care','Women\u2019s Health services','Same-Day Care services','Medical Weight Loss','Treatment plans']},
         {title:'Some of the common conditions we treat include but are not limited to:', items:['Diabetes','Asthma','Arthritis','COPD','Blood Pressure','Heart Disease','Gout','Colitis']}
       ],
       book:{title:'Book Your Appointment Today!', img:I+'Dr.-Maria.png', paras:['Our team is ready to welcome you to our Orland Park clinic. Schedule your visit and begin your path to better health.']},
@@ -966,7 +966,7 @@ class Component extends DCLogic {
       servicesHeading:'Services We Offer',
       servicesParas:['Our Palos Heights clinic provides comprehensive primary care for adults, including women\u2019s health and same-day care services, with personalized treatment plans for each patient.'],
       accordions:[
-        {title:'We offer:', items:['Primary care','Women\u2019s Health services','Same-Day Care services','Treatment plans']},
+        {title:'We offer:', items:['Primary care','Women\u2019s Health services','Same-Day Care services','Medical Weight Loss','Treatment plans']},
         {title:'Some of the common conditions we treat include but are not limited to:', items:['Diabetes','Asthma','Arthritis','COPD','Blood Pressure','Heart Disease','Gout','Colitis']}
       ],
       book:null,
@@ -981,7 +981,7 @@ class Component extends DCLogic {
       servicesHeading:'Services We Offer',
       servicesParas:['Our Evergreen Park clinic provides comprehensive primary care for adults, including women\u2019s health and same-day care services, with personalized treatment plans for each patient.'],
       accordions:[
-        {title:'We offer:', items:['Primary care','Women\u2019s Health services','Same-Day Care services','Treatment plans']},
+        {title:'We offer:', items:['Primary care','Women\u2019s Health services','Same-Day Care services','Medical Weight Loss','Treatment plans']},
         {title:'Some of the common conditions we treat include but are not limited to:', items:['Diabetes','Asthma','Arthritis','COPD','Blood Pressure','Heart Disease','Gout','Colitis']}
       ],
       book:{title:'Book Your Appointment Today!', img:I+'Dr.-Maria.png', paras:['Our team is ready to welcome you to our new Evergreen Park clinic. Schedule your visit and begin your path to better health.']},
@@ -1113,7 +1113,7 @@ class Component extends DCLogic {
     let loc = this.LOCATIONS.find(l=>l.slug===locSlug);
     if(loc){
       loc = Object.assign({}, loc);
-      loc.accordions = (loc.accordions||[]).map((a,i)=>Object.assign({}, a, this.acc('loc-'+loc.slug+'-'+i, a.items)));
+      loc.accordions = (loc.accordions||[]).map((a,i)=>{ const o=Object.assign({}, a, this.acc('loc-'+loc.slug+'-'+i, a.items)); const L={'Medical Weight Loss':'/weight-loss/'}; o.items=(o.items||[]).map(t=>{ const h=L[t]||''; return {label:t, href:h, plain:!h}; }); return o; });
       loc.hasDirections = !!(loc.directions && loc.directions.length);
       loc.nextHref = loc.next ? '#/location/'+loc.next.slug : null;
       loc.nextLabel = loc.next ? loc.next.label : null;
