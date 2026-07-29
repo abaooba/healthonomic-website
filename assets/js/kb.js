@@ -131,7 +131,8 @@
     add('about', 'About Healthonomic Primary Care', '#/about-practice',
       'Healthonomic Primary Care is a primary care, internal and family medicine practice serving the ' +
       'southwest suburbs of Chicago (Cook County), with locations in Orland Park, Palos Heights, and ' +
-      'Evergreen Park. The practice offers same-day appointments and accepts most insurance plans. ' +
+      'Evergreen Park. The practice offers same-day appointments and accepts a range of major ' +
+      'commercial and Medicare plans. ' +
       'Services include internal medicine, primary care, women\u2019s health, urgent care, disease ' +
       'prevention, chronic disease management, diagnostics, treatment, e-visits (telemedicine), and ' +
       'COVID-19 rapid testing. General phone: ' + genPhone + '. To book an appointment, use the Book ' +
@@ -156,8 +157,8 @@
     // Insurance
     if (data.insurances && data.insurances.length) {
       add('insurance', 'Accepted Insurance', '#/insurance-providers',
-        'Healthonomic Primary Care accepts most insurance plans, including Marketplace, employer-based ' +
-        'insurance, Tri-care, and Medicare. Accepted insurances include: ' + data.insurances.join(', ') + '.');
+        'Healthonomic Primary Care accepts the following insurance plans: ' + data.insurances.join('; ') + '. ' +
+        'Participation varies by plan and can change, so please contact our office or your insurer to verify your coverage.');
     }
 
     // Services (flatten intro + Q&A + closing for each)

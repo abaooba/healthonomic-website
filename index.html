@@ -695,17 +695,16 @@ class Component extends DCLogic {
       'Outside of her practice, Dr. Bahena enjoys spending quality time with her husband and her two young children.' ]}
   ]; }
 
-  get ACCEPTED(){ return ['Aetna Commercial and Medicare','BCBS-Blue advantage','Blue Cross Blue Shield Medicare Advantage PPO','Blue Cross Community MMAI','Blue Medicare Advantage HMO','BlueCare Direct','Cigna','Cigna Medicare Advantage / Cigna HealthSpring Medicare Advantage','Cofinity','Devoted Medicare Advantage','First Health','HealthLink','HFN','HST a MultiPlan Company','Humana HMO Commercial (RISK Plans)','Humana Illinois Coordinated Care Network (ICCN)','Humana Medicare Advantage','Humana PPO, EPO, POS, Employer Group Plans','Meridian, A WellCare Company','PHCS / Multiplan','SEIU \u2013 Local 4','UFCW Local 1546 Health and Welfare Fund (Union Medical Center)','UMR Advocate Aurora Health Employee Plan','Unicare PPO','United Healthcare Medicare Advantage','United Healthcare \u2013 Commercial']; }
+  get ACCEPTED(){ return ['Aetna \u2014 HMO, PPO, POS, EPO commercial plans; Aetna Medicare Advantage plans','Blue Cross Blue Shield of Illinois \u2014 BlueCare Direct HMO, Blue Advantage HMO, and BCBSIL Medicare Advantage plans','Cigna \u2014 PPO, EPO, and Open Access Plus commercial plans','Devoted Health \u2014 Medicare Advantage plans','Humana \u2014 Medicare Advantage plans','UnitedHealthcare \u2014 Commercial, Medicare Advantage, and AARP Medicare Advantage plans','Original Medicare \u2014 accepted in addition to the Medicare Advantage plans listed above']; }
 
   get INSURERS(){ return [
     {src:this.IMG+'medicare-1024x567.png',alt:'Medicare'},
     {src:this.IMG+'aetna.svg',alt:'Aetna'},
     {src:this.IMG+'united-healthcare.svg',alt:'UnitedHealthcare'},
     {src:this.IMG+'blue-cross.svg',alt:'BlueCross BlueShield'},
-    {src:this.IMG+'coventry.svg',alt:'Coventry'},
     {src:this.IMG+'cigna.svg',alt:'Cigna'},
-    {src:this.IMG+'first-health.svg',alt:'First Health'},
-    {src:this.IMG+'health-link.svg',alt:'HealthLink'}
+    {src:this.IMG+'devoted.svg',alt:'Devoted Health'},
+    {src:this.IMG+'humana.svg',alt:'Humana'}
   ]; }
 
   get NAV(){ return [
@@ -782,7 +781,7 @@ class Component extends DCLogic {
         {q:'What Are the Treatment Options for Type 1 and Type 2 Diabetes?', a:['Type 1 treatment options typically involve prescription insulin and ongoing monitoring. Type 2 treatment options range from diet and lifestyle changes to medications, and sometimes insulin. Healthonomic Primary Care clinic can conduct adequate testing and diagnosis. We will create a custom treatment plan that addresses your particular needs and condition.']},
         {q:'Counseling & Education / Learning About the Disease to Create Long Term Change', a:['We believe education and counseling are essential to managing diabetes. Our team takes a holistic approach, helping you understand the disease so you can make informed choices and create lasting change.']},
         {q:'Lifestyle Changes / Nutrition, Exercise, and Overall Wellness', a:['A healthy diet and regular physical activity are central to managing diabetes and improving overall wellness. We will work with you on nutrition and exercise habits that fit your life.']},
-        {q:'We Accept Most Insurance Plans', a:['Healthonomic Primary Care clinic accepts most medical insurance plans and forms of payment \u2014 contact us to verify your coverage. Come in today and let us know how we can help you. We take same-day appointments and walk-ins.']}
+        {q:'Insurance Plans We Accept', a:['Healthonomic Primary Care accepts Aetna, Blue Cross Blue Shield of Illinois, Cigna, Devoted Health, Humana, UnitedHealthcare, and Original Medicare \u2014 contact us to verify your coverage. Come in today and let us know how we can help you. We take same-day appointments and walk-ins.']}
       ],
       closing:{title:'Come See Us & Find Out About Diabetes Management', body:["With three locations, Healthonomic Primary Care is ready to serve you. If you suffer from Type 1 Diabetes or suspect you might have diabetes, make an appointment or stop by today and let's get you on the right path toward effective diabetes management and overall health."]} },
 
@@ -792,7 +791,7 @@ class Component extends DCLogic {
         {q:'A COPD Diagnosis / How is the Lung Condition Diagnosed?', a:['To diagnose COPD, our physicians review your medical history, evaluate your current symptoms, and may perform testing using a spirometer to measure your lung function. Additional testing may be ordered to confirm the diagnosis.']},
         {q:'Treatment and Treatment Options for COPD / What We Can Do', a:['Treatment options might include lifestyle changes, medication, and lung therapy. Following your treatment plan closely is key to managing the condition.']},
         {q:'Why Choose Healthonomic Primary Care Clinic For Treatment?', a:['So why choose us? We offer available and compassionate care along with experienced internists and family doctors dedicated to your respiratory health.']},
-        {q:'We Accept Most Insurance Plans and Take Walk-Ins', a:['Healthonomic Primary Care clinic accepts most medical insurance plans and forms of payment \u2014 contact us to verify your coverage. Come in today and let us know how we can help you. We take same-day appointments and walk-ins.']}
+        {q:'Insurance Plans We Accept and Walk-In Care', a:['Healthonomic Primary Care accepts Aetna, Blue Cross Blue Shield of Illinois, Cigna, Devoted Health, Humana, UnitedHealthcare, and Original Medicare \u2014 contact us to verify your coverage. Come in today and let us know how we can help you. We take same-day appointments and walk-ins.']}
       ],
       closing:{title:'Breathe Easy With Healthonomic Primary Care COPD Treatments', body:['Come in today and talk to one of our experienced physicians about your pulmonary troubles and difficulty breathing. If you think you might be suffering from COPD, get checked and find a suitable treatment program. We are here to help.']} },
 
@@ -946,7 +945,7 @@ class Component extends DCLogic {
   get LOCATIONS(){ const I=this.IMG; return [
     { slug:'orland-park', name:'Orland Park Office', providers:[{name:'Dr. Maria Lentzou, MD',specialty:'Internal Medicine'},{name:'Zaneta Wojas, MSN, FNP-BC, FNP-C',specialty:'Family Medicine'},{name:'Ewelina Tatar, MSN, APRN, FNP-C',specialty:'Family Medicine'}], banner:I+'healthonomic-orland-park-location-1024x258.jpg',
       h1:'Orland Park Clinic', sub:'Healthonomic Primary Care',
-      intro:["Healthonomic Primary Care has three locations in the Chicago area. One of our main locations is proud to serve the Orland Park community. And just like our other locations, the Orland Park doctors office is staffed with a highly-qualified primary care physician and family doctor that is ready to serve you. Our physicians specialize in internal medicine, family medicine, and women's health. Our goal is to be available when you need us most. It's why we are a walk-in clinic that also offers same-day appointments and accepts most forms of insurance and medical coverage."],
+      intro:["Healthonomic Primary Care has three locations in the Chicago area. One of our main locations is proud to serve the Orland Park community. And just like our other locations, the Orland Park doctors office is staffed with a highly-qualified primary care physician and family doctor that is ready to serve you. Our physicians specialize in internal medicine, family medicine, and women's health. Our goal is to be available when you need us most. It's why we are a walk-in clinic that also offers same-day appointments and accepts a range of major commercial and Medicare plans."],
       servicesHeading:'Services We Offer — Primary Care for Adults in Orland Park',
       servicesParas:['Our Orland Park clinic provides comprehensive primary care for adults, including women\u2019s health and same-day care services, with personalized treatment plans for each patient.'],
       accordions:[
@@ -1295,7 +1294,7 @@ class Component extends DCLogic {
       tilesGridCols: isMobile ? 'repeat(2,1fr)' : (isTablet ? 'repeat(3,1fr)' : 'repeat(5,1fr)'),
       teamGridCols: isMobile ? '1fr' : (isTablet ? 'repeat(2,1fr)' : 'repeat(3,1fr)'),
       trioGridCols: isMobile ? '1fr' : 'repeat(3,1fr)',
-      insuranceListCols: isMobile ? '1fr' : (isTablet ? 'repeat(2,1fr)' : 'repeat(3,1fr)'),
+      insuranceListCols: isMobile ? '1fr' : 'repeat(2,1fr)',
       heroH1Size: isMobile ? '40px' : '60px',
 
       // for the routed-content child component
@@ -1474,29 +1473,13 @@ class Component extends DCLogic {
             
               <img data-dc-tpl="71" src="/assets/uploads/blue-cross.svg" alt="BlueCross BlueShield" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
             
-              <img data-dc-tpl="71" src="/assets/uploads/coventry.svg" alt="Coventry" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+              
             
-              <img data-dc-tpl="71" src="/assets/uploads/cigna.svg" alt="Cigna" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+              <img data-dc-tpl="71" src="/assets/uploads/cigna.svg" alt="Cigna" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);"><img data-dc-tpl="71" src="/assets/uploads/devoted.svg" alt="Devoted Health" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);"><img data-dc-tpl="71" src="/assets/uploads/humana.svg" alt="Humana" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
             
-              <img data-dc-tpl="71" src="/assets/uploads/first-health.svg" alt="First Health" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+              
             
-              <img data-dc-tpl="71" src="/assets/uploads/health-link.svg" alt="HealthLink" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
-            
-              <img data-dc-tpl="71" src="/assets/uploads/medicare-1024x567.png" alt="Medicare" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
-            
-              <img data-dc-tpl="71" src="/assets/uploads/aetna.svg" alt="Aetna" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
-            
-              <img data-dc-tpl="71" src="/assets/uploads/united-healthcare.svg" alt="UnitedHealthcare" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
-            
-              <img data-dc-tpl="71" src="/assets/uploads/blue-cross.svg" alt="BlueCross BlueShield" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
-            
-              <img data-dc-tpl="71" src="/assets/uploads/coventry.svg" alt="Coventry" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
-            
-              <img data-dc-tpl="71" src="/assets/uploads/cigna.svg" alt="Cigna" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
-            
-              <img data-dc-tpl="71" src="/assets/uploads/first-health.svg" alt="First Health" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
-            
-              <img data-dc-tpl="71" src="/assets/uploads/health-link.svg" alt="HealthLink" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+              
             
               <img data-dc-tpl="71" src="/assets/uploads/medicare-1024x567.png" alt="Medicare" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
             
@@ -1506,29 +1489,13 @@ class Component extends DCLogic {
             
               <img data-dc-tpl="71" src="/assets/uploads/blue-cross.svg" alt="BlueCross BlueShield" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
             
-              <img data-dc-tpl="71" src="/assets/uploads/coventry.svg" alt="Coventry" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+              
             
-              <img data-dc-tpl="71" src="/assets/uploads/cigna.svg" alt="Cigna" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+              <img data-dc-tpl="71" src="/assets/uploads/cigna.svg" alt="Cigna" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);"><img data-dc-tpl="71" src="/assets/uploads/devoted.svg" alt="Devoted Health" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);"><img data-dc-tpl="71" src="/assets/uploads/humana.svg" alt="Humana" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
             
-              <img data-dc-tpl="71" src="/assets/uploads/first-health.svg" alt="First Health" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+              
             
-              <img data-dc-tpl="71" src="/assets/uploads/health-link.svg" alt="HealthLink" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
-            
-              <img data-dc-tpl="71" src="/assets/uploads/medicare-1024x567.png" alt="Medicare" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
-            
-              <img data-dc-tpl="71" src="/assets/uploads/aetna.svg" alt="Aetna" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
-            
-              <img data-dc-tpl="71" src="/assets/uploads/united-healthcare.svg" alt="UnitedHealthcare" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
-            
-              <img data-dc-tpl="71" src="/assets/uploads/blue-cross.svg" alt="BlueCross BlueShield" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
-            
-              <img data-dc-tpl="71" src="/assets/uploads/coventry.svg" alt="Coventry" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
-            
-              <img data-dc-tpl="71" src="/assets/uploads/cigna.svg" alt="Cigna" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
-            
-              <img data-dc-tpl="71" src="/assets/uploads/first-health.svg" alt="First Health" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
-            
-              <img data-dc-tpl="71" src="/assets/uploads/health-link.svg" alt="HealthLink" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+              
             
               <img data-dc-tpl="71" src="/assets/uploads/medicare-1024x567.png" alt="Medicare" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
             
@@ -1538,13 +1505,13 @@ class Component extends DCLogic {
             
               <img data-dc-tpl="71" src="/assets/uploads/blue-cross.svg" alt="BlueCross BlueShield" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
             
-              <img data-dc-tpl="71" src="/assets/uploads/coventry.svg" alt="Coventry" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+              
             
-              <img data-dc-tpl="71" src="/assets/uploads/cigna.svg" alt="Cigna" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+              <img data-dc-tpl="71" src="/assets/uploads/cigna.svg" alt="Cigna" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);"><img data-dc-tpl="71" src="/assets/uploads/devoted.svg" alt="Devoted Health" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);"><img data-dc-tpl="71" src="/assets/uploads/humana.svg" alt="Humana" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
             
-              <img data-dc-tpl="71" src="/assets/uploads/first-health.svg" alt="First Health" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+              
             
-              <img data-dc-tpl="71" src="/assets/uploads/health-link.svg" alt="HealthLink" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+              
             
               <img data-dc-tpl="71" src="/assets/uploads/medicare-1024x567.png" alt="Medicare" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
             
@@ -1554,13 +1521,45 @@ class Component extends DCLogic {
             
               <img data-dc-tpl="71" src="/assets/uploads/blue-cross.svg" alt="BlueCross BlueShield" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
             
-              <img data-dc-tpl="71" src="/assets/uploads/coventry.svg" alt="Coventry" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+              
             
-              <img data-dc-tpl="71" src="/assets/uploads/cigna.svg" alt="Cigna" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+              <img data-dc-tpl="71" src="/assets/uploads/cigna.svg" alt="Cigna" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);"><img data-dc-tpl="71" src="/assets/uploads/devoted.svg" alt="Devoted Health" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);"><img data-dc-tpl="71" src="/assets/uploads/humana.svg" alt="Humana" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
             
-              <img data-dc-tpl="71" src="/assets/uploads/first-health.svg" alt="First Health" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+              
             
-              <img data-dc-tpl="71" src="/assets/uploads/health-link.svg" alt="HealthLink" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+              
+            
+              <img data-dc-tpl="71" src="/assets/uploads/medicare-1024x567.png" alt="Medicare" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+            
+              <img data-dc-tpl="71" src="/assets/uploads/aetna.svg" alt="Aetna" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+            
+              <img data-dc-tpl="71" src="/assets/uploads/united-healthcare.svg" alt="UnitedHealthcare" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+            
+              <img data-dc-tpl="71" src="/assets/uploads/blue-cross.svg" alt="BlueCross BlueShield" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+            
+              
+            
+              <img data-dc-tpl="71" src="/assets/uploads/cigna.svg" alt="Cigna" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);"><img data-dc-tpl="71" src="/assets/uploads/devoted.svg" alt="Devoted Health" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);"><img data-dc-tpl="71" src="/assets/uploads/humana.svg" alt="Humana" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+            
+              
+            
+              
+            
+              <img data-dc-tpl="71" src="/assets/uploads/medicare-1024x567.png" alt="Medicare" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+            
+              <img data-dc-tpl="71" src="/assets/uploads/aetna.svg" alt="Aetna" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+            
+              <img data-dc-tpl="71" src="/assets/uploads/united-healthcare.svg" alt="UnitedHealthcare" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+            
+              <img data-dc-tpl="71" src="/assets/uploads/blue-cross.svg" alt="BlueCross BlueShield" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+            
+              
+            
+              <img data-dc-tpl="71" src="/assets/uploads/cigna.svg" alt="Cigna" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);"><img data-dc-tpl="71" src="/assets/uploads/devoted.svg" alt="Devoted Health" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);"><img data-dc-tpl="71" src="/assets/uploads/humana.svg" alt="Humana" loading="lazy" style="height: 46px; width: auto; object-fit: contain; flex: 0 0 auto; margin-right: 60px; filter: saturate(1.05);">
+            
+              
+            
+              
             
           </div>
         </div>
@@ -1754,8 +1753,8 @@ class Component extends DCLogic {
             <p data-dc-tpl="150" style="margin: 0px; font-size: 15px; line-height: 1.7; color: rgb(107, 114, 128);">Healthonomic Primary Care has three locations throughout the Chicago area, including Orland Park, Palos Heights, and Evergreen Park. Find a clinic near you and contact us during business hours. They vary slightly per clinic.</p>
           </div>
           <div data-dc-tpl="151">
-            <h3 data-dc-tpl="152" style="margin: 0px 0px 18px; font-family: &quot;Playfair Display&quot;, Georgia, serif; font-style: italic; font-weight: 600; font-size: 23px; color: rgb(21, 54, 110); line-height: 1.3;">Healthonomic Accepts Most Insurance Plans and Medical Coverage</h3>
-            <p data-dc-tpl="153" style="margin: 0px; font-size: 15px; line-height: 1.7; color: rgb(107, 114, 128);">Whether you purchased your insurance through the Marketplace, have employer-based insurance, Tri-care, or other medical coverage, we accept most insurance plans and forms of payment. Participation varies by plan — please contact us to verify your coverage.</p>
+            <h3 data-dc-tpl="152" style="margin: 0px 0px 18px; font-family: &quot;Playfair Display&quot;, Georgia, serif; font-style: italic; font-weight: 600; font-size: 23px; color: rgb(21, 54, 110); line-height: 1.3;">Healthonomic Accepts Major Commercial and Medicare Plans</h3>
+            <p data-dc-tpl="153" style="margin: 0px; font-size: 15px; line-height: 1.7; color: rgb(107, 114, 128);">We accept Aetna, Blue Cross Blue Shield of Illinois, Cigna, Devoted Health, Humana, UnitedHealthcare, and Original Medicare. Participation varies by plan — please contact us to verify your coverage.</p>
           </div>
           <div data-dc-tpl="154">
             <h3 data-dc-tpl="155" style="margin: 0px 0px 18px; font-family: &quot;Playfair Display&quot;, Georgia, serif; font-style: italic; font-weight: 600; font-size: 23px; color: rgb(21, 54, 110); line-height: 1.3;">Contact Us Today and Begin Your Path to Better Health</h3>
