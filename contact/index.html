@@ -483,7 +483,7 @@ class Component extends DCLogic {
       '7. End every reply with a line of the form "SOURCES: 1,3" listing the CONTEXT numbers you used, or "SOURCES: none".'
     ].join('\n');
 
-    this.state = { route: this.parseRoute(), open: {}, mobileNav:false, hoverMenu:null, chat:false,
+    this.state = { route: this.parseRoute(), open: {}, mobileNav:false, hoverMenu:null, chat:false, contactStatus:'',
       chatMsgs: [{ role:'assistant', content:'Hi there! I\u2019m Healthonomic\u2019s automated AI assistant. Ask me about our services, locations, hours, insurance, or booking an appointment. I can\u2019t give medical advice, so please don\u2019t share personal or health details here \u2014 and if this is an emergency, call 911.' }],
       chatInput:'', chatBusy:false,
       vw: (typeof window!=='undefined'?window.innerWidth:1280),
@@ -1183,6 +1183,21 @@ class Component extends DCLogic {
       noCareerFile: !this.state.careerFile,
       onCareerFile: (e)=>{ const f=e.target.files && e.target.files[0]; this.setState({ careerFile: f ? f.name : '' }); },
       noSubmit: (e)=>{ e.preventDefault(); },
+      onContactSubmit: (e)=>{
+        e.preventDefault();
+        if(this.state.contactStatus==='sending') return;
+        const form = e.target;
+        const d = new FormData(form);
+        d.set('form-name','contact');
+        const body = new URLSearchParams(d).toString();
+        this.setState({ contactStatus:'sending' });
+        fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body })
+          .then(r=>{ if(!r.ok) throw new Error('send failed'); form.reset(); this.setState({ contactStatus:'ok' }); })
+          .catch(()=>this.setState({ contactStatus:'error' }));
+      },
+      contactOk: this.state.contactStatus==='ok',
+      contactError: this.state.contactStatus==='error',
+      contactSubmitLabel: this.state.contactStatus==='sending' ? 'Sending…' : 'Submit',
       weightLossCards: this.WEIGHTLOSS_CARDS,
       wlTimeline: this.WEIGHTLOSS_CARDS.map((c,i)=>Object.assign({}, c, { isLeft: i%2===0, isRight: i%2!==0 })),
       wlHeroCols: isMobile ? '1fr' : '1.02fr .98fr',
@@ -1448,18 +1463,18 @@ class Component extends DCLogic {
         <div data-dc-tpl="322">9401 S Pulaski Rd, Suite 101, Evergreen Park, IL 60805<br data-dc-tpl="323"><span data-dc-tpl="324" style="font-weight: 600; color: rgb(21, 54, 110);">Hours</span></div>
       </div></section>
       <section data-dc-tpl="325" style="background: rgb(255, 255, 255);"><div data-dc-tpl="326" style="max-width: 1100px; margin: 0px auto; padding: 60px 20px; display: grid; gap: 36px; grid-template-columns: 1.4fr 1fr;">
-        <form data-dc-tpl="327" style="display: flex; flex-direction: column; gap: 16px;">
+        <form name="contact" data-netlify="true" netlify-honeypot="bot-field" data-dc-tpl="327" style="display: flex; flex-direction: column; gap: 16px;"><input type="hidden" name="form-name" value="contact"><p style="display:none;"><label>Do not fill this out: <input name="bot-field"></label></p>
           <div data-dc-tpl="328" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-            <input data-dc-tpl="329" placeholder="First Name" style="padding: 13px 14px; border: 1px solid rgb(212, 217, 223); font-size: 15px; font-family: inherit;">
-            <input data-dc-tpl="330" placeholder="Last Name" style="padding: 13px 14px; border: 1px solid rgb(212, 217, 223); font-size: 15px; font-family: inherit;">
+            <input data-dc-tpl="329" name="firstName" required placeholder="First Name" style="padding: 13px 14px; border: 1px solid rgb(212, 217, 223); font-size: 15px; font-family: inherit;">
+            <input data-dc-tpl="330" name="lastName" placeholder="Last Name" style="padding: 13px 14px; border: 1px solid rgb(212, 217, 223); font-size: 15px; font-family: inherit;">
           </div>
-          <div data-dc-tpl="331" style="position: relative;"><span data-dc-tpl="332" style="position: absolute; left: 13px; top: 50%; transform: translateY(-50%); color: rgb(154, 163, 175);">✉</span><input data-dc-tpl="333" placeholder="Email" type="email" style="width: 100%; padding: 13px 14px 13px 38px; border: 1px solid rgb(212, 217, 223); font-size: 15px; font-family: inherit;"></div>
-          <input data-dc-tpl="334" placeholder="Phone" style="padding: 13px 14px; border: 1px solid rgb(212, 217, 223); font-size: 15px; font-family: inherit;">
-          <textarea data-dc-tpl="335" placeholder="Message" rows="5" style="padding: 13px 14px; border: 1px solid rgb(212, 217, 223); font-size: 15px; font-family: inherit; resize: vertical;"></textarea>
-          <select data-dc-tpl="336" style="padding: 13px 14px; border: 1px solid rgb(212, 217, 223); font-size: 15px; font-family: inherit; color: rgb(69, 69, 69);">
+          <div data-dc-tpl="331" style="position: relative;"><span data-dc-tpl="332" style="position: absolute; left: 13px; top: 50%; transform: translateY(-50%); color: rgb(154, 163, 175);">✉</span><input data-dc-tpl="333" name="email" required placeholder="Email" type="email" style="width: 100%; padding: 13px 14px 13px 38px; border: 1px solid rgb(212, 217, 223); font-size: 15px; font-family: inherit;"></div>
+          <input data-dc-tpl="334" name="phone" placeholder="Phone" style="padding: 13px 14px; border: 1px solid rgb(212, 217, 223); font-size: 15px; font-family: inherit;">
+          <textarea data-dc-tpl="335" name="message" required placeholder="Message" rows="5" style="padding: 13px 14px; border: 1px solid rgb(212, 217, 223); font-size: 15px; font-family: inherit; resize: vertical;"></textarea>
+          <select data-dc-tpl="336" name="location" style="padding: 13px 14px; border: 1px solid rgb(212, 217, 223); font-size: 15px; font-family: inherit; color: rgb(69, 69, 69);">
             <option data-dc-tpl="337">Orland Park Location</option><option data-dc-tpl="338">Palos Heights Location</option><option data-dc-tpl="339">Evergreen Park Location</option>
           </select>
-          <label data-dc-tpl="340" style="display: flex; gap: 10px; align-items: flex-start; font-size: 12.5px; color: rgb(107, 114, 128); line-height: 1.5;"><input data-dc-tpl="341" type="checkbox" style="margin-top: 3px; flex: 0 0 auto;"><span data-dc-tpl="342">I understand and agree that any information submitted will be forwarded to our office by email and not via a secure messaging system. This form should not be used to transmit private health information, and we disclaim all warranties with respect to the privacy and confidentiality of any information submitted through this form.</span></label>
+          <label data-dc-tpl="340" style="display: flex; gap: 10px; align-items: flex-start; font-size: 12.5px; color: rgb(107, 114, 128); line-height: 1.5;"><input data-dc-tpl="341" type="checkbox" name="noPhiAcknowledged" value="yes" required style="margin-top: 3px; flex: 0 0 auto;"><span data-dc-tpl="342">I understand and agree that any information submitted will be forwarded to our office by email and not via a secure messaging system. This form should not be used to transmit private health information, and we disclaim all warranties with respect to the privacy and confidentiality of any information submitted through this form.</span></label>
           <button data-dc-tpl="343" type="submit" style="background: rgb(35, 81, 163); color: rgb(255, 255, 255); border: medium; font-weight: 500; font-size: 16px; padding: 15px; width: 100%;">Submit</button>
         </form>
         <aside data-dc-tpl="344" style="background: rgb(11, 28, 42); color: rgb(255, 255, 255); padding: 40px 30px; display: flex; flex-direction: column;">
