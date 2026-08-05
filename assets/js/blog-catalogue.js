@@ -8,6 +8,12 @@
  */
 (function () {
   var POSTS = [
+    { slug: 'walking-trails-near-orland-park-palos-heights-evergreen-park',
+      title: 'Walking Trails Close to Home: A Local Guide to Moving More This Fall',
+      date: 'August 5, 2026',
+      excerpt: 'A doctor-reviewed guide to flat, beginner-friendly walking trails near our Orland Park, Palos Heights, and Evergreen Park offices \u2014 where to park, which paths are paved, and why a regular walk is some of the best medicine for aging well.',
+      image: null, body: null },
+
     { slug: 'summer-heat-chronic-conditions',
       title: 'You\u2019re Doing Everything Right This Summer. So Why Does Your Body Feel Worse?',
       date: 'June 24, 2026',
