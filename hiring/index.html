@@ -483,7 +483,7 @@ class Component extends DCLogic {
       '7. End every reply with a line of the form "SOURCES: 1,3" listing the CONTEXT numbers you used, or "SOURCES: none".'
     ].join('\n');
 
-    this.state = { route: this.parseRoute(), open: {}, mobileNav:false, hoverMenu:null, chat:false, contactStatus:'',
+    this.state = { route: this.parseRoute(), open: {}, mobileNav:false, hoverMenu:null, chat:false, contactStatus:'', wlStatus:'', careersStatus:'',
       chatMsgs: [{ role:'assistant', content:'Hi there! I\u2019m Healthonomic\u2019s automated AI assistant. Ask me about our services, locations, hours, insurance, or booking an appointment. I can\u2019t give medical advice, so please don\u2019t share personal or health details here \u2014 and if this is an emergency, call 911.' }],
       chatInput:'', chatBusy:false,
       vw: (typeof window!=='undefined'?window.innerWidth:1280),
@@ -1182,7 +1182,6 @@ class Component extends DCLogic {
       hasCareerFile: !!this.state.careerFile,
       noCareerFile: !this.state.careerFile,
       onCareerFile: (e)=>{ const f=e.target.files && e.target.files[0]; this.setState({ careerFile: f ? f.name : '' }); },
-      noSubmit: (e)=>{ e.preventDefault(); },
       onContactSubmit: (e)=>{
         e.preventDefault();
         if(this.state.contactStatus==='sending') return;
@@ -1198,6 +1197,35 @@ class Component extends DCLogic {
       contactOk: this.state.contactStatus==='ok',
       contactError: this.state.contactStatus==='error',
       contactSubmitLabel: this.state.contactStatus==='sending' ? 'Sending…' : 'Submit',
+      onWeightLossSubmit: (e)=>{
+        e.preventDefault();
+        if(this.state.wlStatus==='sending') return;
+        const form = e.target;
+        const d = new FormData(form);
+        d.set('form-name','weight-loss');
+        const body = new URLSearchParams(d).toString();
+        this.setState({ wlStatus:'sending' });
+        fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body })
+          .then(r=>{ if(!r.ok) throw new Error('send failed'); form.reset(); this.setState({ wlStatus:'ok' }); })
+          .catch(()=>this.setState({ wlStatus:'error' }));
+      },
+      wlOk: this.state.wlStatus==='ok',
+      wlError: this.state.wlStatus==='error',
+      wlSubmitLabel: this.state.wlStatus==='sending' ? 'SENDING…' : 'SEND',
+      onCareersSubmit: (e)=>{
+        e.preventDefault();
+        if(this.state.careersStatus==='sending') return;
+        const form = e.target;
+        const d = new FormData(form);
+        d.set('form-name','careers');
+        this.setState({ careersStatus:'sending' });
+        fetch('/', { method:'POST', body:d })
+          .then(r=>{ if(!r.ok) throw new Error('send failed'); form.reset(); this.setState({ careersStatus:'ok', careerFile:'' }); })
+          .catch(()=>this.setState({ careersStatus:'error' }));
+      },
+      careersOk: this.state.careersStatus==='ok',
+      careersError: this.state.careersStatus==='error',
+      careersSubmitLabel: this.state.careersStatus==='sending' ? 'SENDING…' : 'SEND RESUME',
       weightLossCards: this.WEIGHTLOSS_CARDS,
       wlTimeline: this.WEIGHTLOSS_CARDS.map((c,i)=>Object.assign({}, c, { isLeft: i%2===0, isRight: i%2!==0 })),
       wlHeroCols: isMobile ? '1fr' : '1.02fr .98fr',
@@ -1496,9 +1524,9 @@ class Component extends DCLogic {
             <div data-dc-tpl="645" style="background: rgb(11, 28, 42); border-radius: 8px; padding: 38px 34px; box-shadow: 0 14px 40px rgba(11,28,42,.18);">
               <h3 data-dc-tpl="646" style="margin: 0px 0px 6px; font-size: 21px; font-weight: 700; color: rgb(255, 255, 255);">Send Us Your Resume</h3>
               <p data-dc-tpl="647" style="margin: 0px 0px 24px; font-size: 13.5px; color: rgb(174, 191, 212); line-height: 1.55;">Fields marked with * are required.</p>
-              <form data-dc-tpl="648" style="display: flex; flex-direction: column; gap: 18px;">
-                <div data-dc-tpl="649"><label data-dc-tpl="650" style="display: block; font-size: 13px; font-weight: 600; color: rgb(219, 231, 247); margin-bottom: 2px;">Name *</label><input data-dc-tpl="651" class="wl-field" type="text" placeholder="Your full name"></div>
-                <div data-dc-tpl="652"><label data-dc-tpl="653" style="display: block; font-size: 13px; font-weight: 600; color: rgb(219, 231, 247); margin-bottom: 2px;">Email *</label><input data-dc-tpl="654" class="wl-field" type="email" placeholder="you@example.com"></div>
+              <form name="careers" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" data-dc-tpl="648" style="display: flex; flex-direction: column; gap: 18px;"><input type="hidden" name="form-name" value="careers"><p style="display:none;"><label>Do not fill this out: <input name="bot-field"></label></p>
+                <div data-dc-tpl="649"><label data-dc-tpl="650" style="display: block; font-size: 13px; font-weight: 600; color: rgb(219, 231, 247); margin-bottom: 2px;">Name *</label><input data-dc-tpl="651" class="wl-field" type="text" name="fullName" required placeholder="Your full name"></div>
+                <div data-dc-tpl="652"><label data-dc-tpl="653" style="display: block; font-size: 13px; font-weight: 600; color: rgb(219, 231, 247); margin-bottom: 2px;">Email *</label><input data-dc-tpl="654" class="wl-field" type="email" name="email" required placeholder="you@example.com"></div>
                 <div data-dc-tpl="655">
                   <label data-dc-tpl="656" style="display: block; font-size: 13px; font-weight: 600; color: rgb(219, 231, 247); margin-bottom: 8px;">Upload Your Resume &amp; Cover Letter *</label>
                   <label data-dc-tpl="657" class="ho-tile" style="display: flex; flex-direction: column; align-items: center; gap: 8px; border: 2px dashed rgba(255, 255, 255, 0.28); border-radius: 6px; padding: 26px 18px; cursor: pointer; text-align: center; background: rgba(255, 255, 255, 0.05);">
@@ -1507,7 +1535,7 @@ class Component extends DCLogic {
                     
                     <span data-dc-tpl="664" style="font-size: 14px; font-weight: 600; color: rgb(255, 255, 255);">Choose a file</span>
                     <span data-dc-tpl="666" style="font-size: 12px; color: rgb(159, 192, 238);">PDF, DOC, or DOCX</span>
-                    <input data-dc-tpl="667" type="file" accept=".pdf,.doc,.docx" style="display: none;">
+                    <input data-dc-tpl="667" type="file" name="resume" required accept=".pdf,.doc,.docx" style="display: none;">
                   </label>
                 </div>
                 <button data-dc-tpl="668" type="submit" class="ho-btn" style="background: rgb(35, 81, 163); color: rgb(255, 255, 255); border: medium; padding: 15px; width: 100%; font-weight: 700; letter-spacing: 1px; font-size: 14px; border-radius: 3px;">SEND RESUME</button>
