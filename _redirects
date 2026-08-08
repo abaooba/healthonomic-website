@@ -69,7 +69,9 @@
 /services/womens /service/womens-health/ 301
 /services/womens/ /service/womens-health/ 301
 /services/* /service/:splat 301
-# Old location paths -> locations page (update when dedicated /locations/{city} pages ship)
+# Unmatched /location/ paths -> locations page. The live city pages
+# (/location/orland-park/ etc.) are real files, and Netlify serves an existing
+# file over a non-forced redirect, so they are unaffected. Do not add a ! flag.
 /location/* /locations/ 301
 # Old blog category archives + feeds -> blog index
 /category/* /blog/ 301
