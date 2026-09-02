@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XNVF6ZNGGX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XNVF6ZNGGX');
+</script>
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>How to Build Healthy Sleep Habits and Improve Your Sleep Naturally | Healthonomic Primary Care</title>
@@ -483,7 +492,7 @@ class Component extends DCLogic {
       '7. End every reply with a line of the form "SOURCES: 1,3" listing the CONTEXT numbers you used, or "SOURCES: none".'
     ].join('\n');
 
-    this.state = { route: this.parseRoute(), open: {}, mobileNav:false, hoverMenu:null, chat:false,
+    this.state = { route: this.parseRoute(), open: {}, mobileNav:false, hoverMenu:null, chat:false, contactStatus:'', wlStatus:'', careersStatus:'',
       chatMsgs: [{ role:'assistant', content:'Hi there! I\u2019m Healthonomic\u2019s automated AI assistant. Ask me about our services, locations, hours, insurance, or booking an appointment. I can\u2019t give medical advice, so please don\u2019t share personal or health details here \u2014 and if this is an emergency, call 911.' }],
       chatInput:'', chatBusy:false,
       vw: (typeof window!=='undefined'?window.innerWidth:1280),
@@ -1031,7 +1040,7 @@ class Component extends DCLogic {
       { h:'Questions', ps:[
         'Questions about these terms? Call us at 708-671-1500 (General) or 708-696-1311 (Orland Park), or ask at any of our front desks.' ]}
     ]},
-    'privacy': { title:'Privacy Policy', sub:'Healthonomic Primary Care Website', updated:'Last updated: July 2026', sections:[
+    'privacy': { title:'Privacy Policy', sub:'Healthonomic Primary Care Website', updated:'Last updated: August 2026', sections:[
       { h:'', ps:[
         'This policy describes what information this website collects and how it is used. It applies to this website only \u2014 not to the care you receive in our offices, which is protected under HIPAA and described in our Notice of Privacy Practices (see below).' ]},
       { h:'What This Website Collects', ps:[
@@ -1044,7 +1053,7 @@ class Component extends DCLogic {
       { h:'Chat Assistant', ps:[
         'The chat widget is an automated AI assistant. The questions you type are transmitted to our service provider solely to generate an answer from this website\u2019s content. Chat conversations are not used to build a profile of you and are not linked to your medical record. Please do not enter personal or health details.' ]},
       { h:'Cookies & Tracking', ps:[
-        'This website does not use advertising cookies, analytics trackers, or social-media pixels. Embedded third-party content \u2014 Google Maps, the LiveWell patient portal, and links to Facebook and Yelp \u2014 is governed by those companies\u2019 own privacy policies when you interact with it.' ]},
+        'This website uses Google Analytics to measure aggregate site usage (pages visited, traffic sources). IP addresses are not logged or stored by Google Analytics, and we do not use advertising cookies or social-media pixels. Embedded third-party content \u2014 Google Maps, the LiveWell patient portal, and links to Facebook and Yelp \u2014 is governed by those companies\u2019 own privacy policies when you interact with it.' ]},
       { h:'Your Medical Records & HIPAA', ps:[
         'Protected health information we hold about you as a patient is safeguarded under HIPAA and described in our Notice of Privacy Practices, available at the front desk of any of our offices. This website is not intended to collect protected health information.' ]},
       { h:'Children', ps:[
@@ -1212,7 +1221,50 @@ class Component extends DCLogic {
       hasCareerFile: !!this.state.careerFile,
       noCareerFile: !this.state.careerFile,
       onCareerFile: (e)=>{ const f=e.target.files && e.target.files[0]; this.setState({ careerFile: f ? f.name : '' }); },
-      noSubmit: (e)=>{ e.preventDefault(); },
+      onContactSubmit: (e)=>{
+        e.preventDefault();
+        if(this.state.contactStatus==='sending') return;
+        const form = e.target;
+        const d = new FormData(form);
+        d.set('form-name','contact');
+        const body = new URLSearchParams(d).toString();
+        this.setState({ contactStatus:'sending' });
+        fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body })
+          .then(r=>{ if(!r.ok) throw new Error('send failed'); form.reset(); this.setState({ contactStatus:'ok' }); })
+          .catch(()=>this.setState({ contactStatus:'error' }));
+      },
+      contactOk: this.state.contactStatus==='ok',
+      contactError: this.state.contactStatus==='error',
+      contactSubmitLabel: this.state.contactStatus==='sending' ? 'Sending…' : 'Submit',
+      onWeightLossSubmit: (e)=>{
+        e.preventDefault();
+        if(this.state.wlStatus==='sending') return;
+        const form = e.target;
+        const d = new FormData(form);
+        d.set('form-name','weight-loss');
+        const body = new URLSearchParams(d).toString();
+        this.setState({ wlStatus:'sending' });
+        fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body })
+          .then(r=>{ if(!r.ok) throw new Error('send failed'); form.reset(); this.setState({ wlStatus:'ok' }); })
+          .catch(()=>this.setState({ wlStatus:'error' }));
+      },
+      wlOk: this.state.wlStatus==='ok',
+      wlError: this.state.wlStatus==='error',
+      wlSubmitLabel: this.state.wlStatus==='sending' ? 'SENDING…' : 'SEND',
+      onCareersSubmit: (e)=>{
+        e.preventDefault();
+        if(this.state.careersStatus==='sending') return;
+        const form = e.target;
+        const d = new FormData(form);
+        d.set('form-name','careers');
+        this.setState({ careersStatus:'sending' });
+        fetch('/', { method:'POST', body:d })
+          .then(r=>{ if(!r.ok) throw new Error('send failed'); form.reset(); this.setState({ careersStatus:'ok', careerFile:'' }); })
+          .catch(()=>this.setState({ careersStatus:'error' }));
+      },
+      careersOk: this.state.careersStatus==='ok',
+      careersError: this.state.careersStatus==='error',
+      careersSubmitLabel: this.state.careersStatus==='sending' ? 'SENDING…' : 'SEND RESUME',
       weightLossCards: this.WEIGHTLOSS_CARDS,
       wlTimeline: this.WEIGHTLOSS_CARDS.map((c,i)=>Object.assign({}, c, { isLeft: i%2===0, isRight: i%2!==0 })),
       wlHeroCols: isMobile ? '1fr' : '1.02fr .98fr',

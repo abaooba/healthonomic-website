@@ -64,3 +64,26 @@
 /blog/health-and-wellness-tips-for-2020 /health-and-wellness-tips-for-2020/ 301
 /blog/obesity-in-america-a-growing-concern /obesity-in-america-a-growing-concern/ 301
 /blog/why-you-should-consider-converting-to-a-vegan-lifestyle /why-you-should-consider-converting-to-a-vegan-lifestyle/ 301
+# --- Legacy WordPress URL migrations (GSC cleanup, 2026-08-08) ---
+# Old plural /services/{slug} -> new singular /service/{slug}/
+/services/womens /service/womens-health/ 301
+/services/womens/ /service/womens-health/ 301
+/services/* /service/:splat 301
+# Unmatched /location/ paths -> locations page. The live city pages
+# (/location/orland-park/ etc.) are real files, and Netlify serves an existing
+# file over a non-forced redirect, so they are unaffected. Do not add a ! flag.
+/location/* /locations/ 301
+# Old blog category archives + feeds -> blog index
+/category/* /blog/ 301
+/comments/feed/ /blog/ 301
+/feed/ /blog/ 301
+# Old top-level pages
+/about/ /about-practice/ 301
+/insurance /insurance-providers/ 301
+/insurance/ /insurance-providers/ 301
+/testimonials-healthonomic-primary-care/ /about-practice/ 301
+# Old WP-uploaded PDFs (the 4 GSC 404s)
+/wp-content/uploads/new-patient-2021.pdf /forms/ 301
+/wp-content/uploads/new-patient-2021-1.pdf /forms/ 301
+/wp-content/uploads/daily-medi.pdf /forms/ 301
+/wp-content/uploads/sun-safety.pdf /top-uv-safety-tips-how-to-protect-your-skin-and-eyes-from-harmful-summer-sun/ 301
