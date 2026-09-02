@@ -519,6 +519,7 @@ class Component extends DCLogic {
     };
     if(!this._blogReady()){ window.addEventListener('ho-blog-ready', this._blogReady); }
     this._observeWL();
+    this._fixLinks();
   }
   componentWillUnmount(){ window.removeEventListener('hashchange', this._hash); window.removeEventListener('resize', this._resize); if(this._blogReady) window.removeEventListener('ho-blog-ready', this._blogReady); }
   parseRoute(){ if(typeof location==='undefined') return 'home';
@@ -530,9 +531,24 @@ class Component extends DCLogic {
     if(BS) return 'blog/'+p;
     return p; }
   toggle(k){ this.setState(s=>({ open:{...s.open,[k]:!s.open[k]} })); }
-  acc(key, items){ const open=!!this.state.open[key]; return { open, openClass: open?'ho-acc-open':'', caretRot: open?'rotate(180deg)':'rotate(0deg)', caret: open?'▾':'▸', caretClass: open?'ho-caret-open':'', toggle:()=>this.toggle(key), items: items||[] }; }
+  acc(key, items){ const open=!!this.state.open[key]; return { open, panelDisplay: open?'block':'none', openClass: open?'ho-acc-open':'', caretRot: open?'rotate(180deg)':'rotate(0deg)', caret: open?'▾':'▸', caretClass: open?'ho-caret-open':'', toggle:()=>this.toggle(key), items: items||[] }; }
 
-  componentDidUpdate(){ const el = (typeof document!=='undefined') && document.getElementById('ho-chat-scroll'); if(el){ el.scrollTop = el.scrollHeight; } this._observeWL(); }
+  componentDidUpdate(){ const el = (typeof document!=='undefined') && document.getElementById('ho-chat-scroll'); if(el){ el.scrollTop = el.scrollHeight; } this._observeWL(); this._fixLinks(); }
+
+  _fixLinks(){
+    if(typeof document==='undefined') return;
+    var posts=(typeof window!=='undefined' && window.HO_BLOG_POSTS)||[];
+    var as=document.querySelectorAll('a[href^="#/"]');
+    for(var i=0;i<as.length;i++){ var a=as[i]; var r=a.getAttribute('href').slice(2).replace(/\/$/,''); var p;
+      if(r===''||r==='home') p='/';
+      else if(r.indexOf('blog/')===0 && posts.some(function(x){return x.slug===r.slice(5);})) p='/'+r.slice(5)+'/';
+      else p='/'+r+'/';
+      a.setAttribute('href',p); }
+  }
+
+  isoDate(s){ var M={January:1,February:2,March:3,April:4,May:5,June:6,July:7,August:8,September:9,October:10,November:11,December:12};
+    var m=/^([A-Za-z]+) (\d{1,2}), (\d{4})$/.exec(String(s||'').trim()); if(!m||!M[m[1]]) return '';
+    return m[3]+'-'+(M[m[1]]<10?'0':'')+M[m[1]]+'-'+(m[2].length<2?'0':'')+m[2]; }
 
   _observeWL(){
     if(typeof window==='undefined' || !('IntersectionObserver' in window) || typeof document==='undefined') return;
@@ -682,12 +698,12 @@ class Component extends DCLogic {
       'Ewelina Tatar, MSN, APRN, FNP-C, is a board-certified Family Nurse Practitioner providing comprehensive primary care to adult and pediatric patients. She earned her Master of Science in Nursing from Bradley University and brings experience from both outpatient primary care and hospital-based settings.',
       'Ewelina focuses on preventive care, chronic disease management, and acute illness treatment, with an emphasis on patient education and collaborative decision-making. Her clinical background spans primary care, internal medicine, women\u2019s health, and acute care, allowing her to support patients through both routine visits and more complex health concerns.',
       'She is known for her compassionate, thoughtful approach and for building strong, long-term relationships with her patients. Ewelina is fluent in Polish and conversational in Spanish, helping Healthonomic serve a diverse community with culturally responsive care.' ]},
-    { name:'Zaneta Wojas, MSN, FNP-BC, FNP-C', specialty:'Family Medicine', img:this.IMG+'zaneta-wojas.png', bio:[
+    { name:'Zaneta Wojas, MSN, FNP-BC, FNP-C', specialty:'Family Medicine', img:this.IMG+'zaneta-wojas.webp', bio:[
       'Zaneta Wojas, MSN, FNP-BC, FNP-C, is a dual board-certified Family Nurse Practitioner dedicated to providing compassionate, high-quality primary care for adults. She earned her Master of Science in Nursing from Lewis University and has a strong clinical focus on cardiovascular health and chronic disease management, with an emphasis on prevention and long-term wellness.',
       'She has experience caring for patients with advanced heart failure, including those with left ventricular assistive devices (LVADs), and is also a Critical Care Board-Certified Nurse, reflecting her advanced training in managing complex conditions.',
       'Zaneta takes a collaborative, patient-centered approach, working closely with individuals to develop personalized care plans and support their health goals. She speaks both English and Polish, allowing her to connect with a diverse range of patients.',
       'Outside of work, Zaneta enjoys spending time with her family, traveling, and exploring new cuisines.' ]},
-    { name:'Dr. Yesenia Bahena, MD', specialty:'Board-Certified Family Medicine Physician', img:this.IMG+'yesenia-bahena.png', bio:[
+    { name:'Dr. Yesenia Bahena, MD', specialty:'Board-Certified Family Medicine Physician', img:this.IMG+'yesenia-bahena.webp', bio:[
       'Dr. Yesenia Bahena is a board-certified family medicine physician with over 10 years of experience providing comprehensive, patient-centered care. She earned her medical degree from Universidad Aut\u00F3noma de Guadalajara and is dedicated to caring for patients of all ages.',
       'Her clinical focus includes preventive care, chronic disease management, and the treatment of acute illnesses. Dr. Bahena is passionate about building meaningful relationships with her patients and emphasizes the importance of a healthy lifestyle as a foundation for overall well-being.',
       'She takes pride in educating her patients about their conditions and believes in a collaborative approach to care, working together with each individual to achieve the best possible outcomes.',
@@ -804,7 +820,7 @@ class Component extends DCLogic {
         {q:'How can I prevent high blood pressure?', a:['Maintaining a healthy lifestyle is essential\u2014eat fruits and vegetables, exercise, limit alcohol, and don\u2019t smoke. Controlling diabetes and cholesterol also helps. If you have questions about your blood pressure, call to schedule your appointment at Healthonomic Primary Care.']}
       ] },
 
-    { slug:'heart-disease', label:'Heart Disease', banner:I+'healthonomic-heart-disease.jpg', h1:'Heart Disease Specialist',
+    { slug:'heart-disease', label:'Heart Disease', banner:I+'healthonomic-heart-disease.webp', h1:'Heart Disease Specialist',
       intro:['Heart disease is the leading cause of death for both men and women in the United States. If you are dealing with a racing heart, shortness of breath, or dizziness, it\u2019s crucial for you to be under a doctor\u2019s care. That\u2019s especially true if you have high blood pressure, are overweight, or have a family history of heart disease. Healthonomic Primary Care in Orland Park, Illinois, can help you reduce your risk of becoming one of the more than 610,000 people who die each year as a result of this condition. If you have symptoms of heart disease or are at risk for developing it, then call today to make an appointment.'],
       qa:[
         {q:'What is heart disease?', a:['There are many forms of heart disease, the most common of which is coronary disease, in which plaques build up in the coronary arteries. Valve disease is another form. We can prescribe drugs and monitor your condition to help manage it.']},
@@ -879,7 +895,7 @@ class Component extends DCLogic {
       ],
       closing:{title:'Be Well, Live Healthily, and Trust In Preventative Care', body:['Having an ongoing relationship with your family doctor or physician means having a consistent medical record. Join us in your preventative care at Healthonomic Primary Care and come in for your wellness exam today.']} },
 
-    { slug:'internal-medicine', label:'Internal Medicine', banner:I+'healthonomic-banner-internal-medicine.jpg', h1:'Your Trusted and Experienced Internal Medicine Doctors',
+    { slug:'internal-medicine', label:'Internal Medicine', banner:I+'healthonomic-banner-internal-medicine.webp', h1:'Your Trusted and Experienced Internal Medicine Doctors',
       intro:['When it comes to internal medicine, Healthonomic Primary Care is a trusted choice in the Chicago area. Our highly qualified internists are ready to serve you six days a week.','The practice of internal medicine is an integral part of any community since it focuses on the prevention, diagnosis, and treatment of diseases in adults without the use of surgery or invasive procedures.'],
       qa:[
         {q:'The Importance of Internal Medicine for Adults / A Comprehensive Approach to Health', a:['Healthonomic Primary Care wants to be the first place you go when seeking help. Our comprehensive approach means we can address a wide range of adult health concerns.']},
@@ -927,7 +943,7 @@ class Component extends DCLogic {
         {q:'If You Have Any Questions or Concerns, Give us a Call', a:["With the confusion surrounding COVID-19, we want to be your source of clarity. Don't hesitate to contact us today."]}
       ] },
 
-    { slug:'sports-physicals', label:'Sports Physicals', banner:I+'AdobeStock_386337735.jpeg', eyebrow:'Sports Physicals', h1:'For Student-Athletes in Cook County, IL',
+    { slug:'sports-physicals', label:'Sports Physicals', banner:I+'AdobeStock_386337735.webp', eyebrow:'Sports Physicals', h1:'For Student-Athletes in Cook County, IL',
       intro:['One of the best ways for children to stay healthy is to stay active with sports and other activities. Healthonomic Primary Care offers sports physicals to make sure kids stay healthy as they play.','If your little one is getting ready for another superstar season, Healthonomic Primary Care can provide sports physicals to clear them for play. Contact us today to schedule your child\u2019s physical!'],
       qa:[
         {q:'What to Know Before The Visit', a:['There are minimal preparations for the vast majority of exams.']},
@@ -952,32 +968,32 @@ class Component extends DCLogic {
         {title:'We offer:', items:['Primary care','Women\u2019s Health services','Same-Day Care services','Medical Weight Loss','Treatment plans']},
         {title:'Some of the common conditions we treat include but are not limited to:', items:['Diabetes','Asthma','Arthritis','COPD','Blood Pressure','Heart Disease','Gout','Colitis']}
       ],
-      book:{title:'Book Your Appointment Today!', img:I+'Dr.-Maria.png', paras:['Our team is ready to welcome you to our Orland Park clinic. Schedule your visit and begin your path to better health.']},
+      book:{title:"Book Your Appointment with Dr. Maria Lentzou, Today!", img:I+'Dr.-Maria.png', paras:["Dr. Maria Lentzou and our team are ready to welcome you to our Orland Park clinic. Schedule your visit and begin your path to better health."]},
       address:'16535 106th CT A-3, Orland Park, IL 60467',
       hours:['Sun: Closed','Mon: 8am\u20136pm','Tue: 7am\u20136pm','Wed: 8am\u20134pm','Thu: 8am\u20134pm','Fri: 8am\u20132pm','Sat: 8am\u20132pm (1st & last Saturday of each month)'],
       phone:'708-696-1311', phoneHref:'tel:7086961311',
-      directions:[{title:'Getting Here',body:'Our Orland Park office is located at 16535 106th Ct #A-3, Orland Park, IL 60467. Use the map above or your preferred navigation app for turn-by-turn directions to our door.'}],
+      directions:[{title:"From Downtown Chicago.", body:"If you’re coming from the downtown Chicago area: Take the Interstate 55 S exit toward St. Louis. Take Exit 279A -27. B to merge onto US-12 South La Grange Road. Use the right 2 lanes to turn slightly right onto US-12 E/US-20 E/US-45 S/South La Grange Road (signs for La Grange Road/Archer Avenue). Use the left 2 lanes to turn left onto W 143rd St. Turn right onto John Humphrey Dr. Turn right at S 94th Ave. Turn right."}, {title:"From Bolingbrook, Illinois.", body:"Drive from N Bolingbrook Dr, I-55 N and I-355 S to Homer Township. Take exit 7 from I-355 S. Head south on N Bolingbrook Dr toward W Briarcliff Rd. Use the left 2 lanes to turn left onto the Interstate 55 N ramp to Chicago. Merge onto I-55 N. Take exit 269 for I-355 toward NW Suburbs/SW Suburbs. Keep right at the fork, follow signs for Interstate 355 S/Southwest Suburbs and merge onto I-355 S. Take exit 7 for IL-171/Archer Ave toward 143rd St. Keep left to continue toward W 143rd St/Orland Park Rd. Use the left lane to keep left at the fork and continue toward W 143rd St/Orland Park Rd. Turn left onto W 143rd St/Orland Park Rd. Continue straight to stay on W 143rd St/Orland Park Rd. Continue on W 143rd St to your destination."}],
       next:{slug:'palos-heights', label:'Palos Heights'} },
 
-    { slug:'palos-heights', name:'Palos Heights Office', providers:[{name:'Theresa Malinowski, FNP-BC',specialty:'Family Medicine'}], banner:I+'healthonomics-banner-building.jpg',
+    { slug:'palos-heights', name:'Palos Heights Office', providers:[{name:'Theresa Malinowski, FNP-BC',specialty:'Family Medicine'}], banner:I+'healthonomics-banner-building.webp',
       h1:'Palos Heights Clinic', sub:'Healthonomic Primary Care',
       intro:['Healthonomic Primary Care has three locations in the Chicago area, proudly serving the Palos Heights community. Our physicians specialize in internal medicine, family medicine, and women\u2019s health.'],
-      servicesHeading:'Services We Offer',
+      servicesHeading:'Services We Offer — Primary Care for Adults in Palos Heights',
       servicesParas:['Our Palos Heights clinic provides comprehensive primary care for adults, including women\u2019s health and same-day care services, with personalized treatment plans for each patient.'],
       accordions:[
         {title:'We offer:', items:['Primary care','Women\u2019s Health services','Same-Day Care services','Medical Weight Loss','Treatment plans']},
         {title:'Some of the common conditions we treat include but are not limited to:', items:['Diabetes','Asthma','Arthritis','COPD','Blood Pressure','Heart Disease','Gout','Colitis']}
       ],
-      book:null,
+      book:{title:'Book Your Appointment Today!', img:I+'Dr.-Maria.png', paras:['Our team is ready to welcome you to our Palos Heights clinic. Schedule your visit and begin your path to better health.']},
       address:'12050 South Harlem Ave, Suite A, Palos Heights, IL 60463',
       hours:['Sun: Closed','Mon: 10am–6pm','Tue: 8:30am–4:30pm','Wed: Closed','Thu: Closed','Fri: Closed','Sat: Closed'],
-      phone:'', phoneHref:'',
-      directions:[], next:{slug:'evergreen-park', label:'Evergreen Park'} },
+      phone:'708-671-1500', phoneHref:'tel:7086711500',
+      directions:[{title:'Getting Here',body:'Our Palos Heights office is located at 12050 South Harlem Ave, Suite A, Palos Heights, IL 60463, on Harlem Avenue just south of 119th Street. Use the map above or your preferred navigation app for turn-by-turn directions to our door.'}], next:{slug:'evergreen-park', label:'Evergreen Park'} },
 
-    { slug:'evergreen-park', name:'Evergreen Park Office', providers:[{name:'Lena Charles, MSN, APRN, FNP-BC, CCM',specialty:'Family Medicine'},{name:'Dr. Yesenia Bahena, MD',specialty:'Board-Certified Family Medicine Physician'}], banner:I+'healthonomics-banner-building.jpg',
+    { slug:'evergreen-park', name:'Evergreen Park Office', providers:[{name:'Lena Charles, MSN, APRN, FNP-BC, CCM',specialty:'Family Medicine'},{name:'Dr. Yesenia Bahena, MD',specialty:'Board-Certified Family Medicine Physician'}], banner:I+'healthonomics-banner-building.webp',
       h1:'Evergreen Park Clinic', sub:'Healthonomic Primary Care',
       intro:['Healthonomic Primary Care is proud to announce our new location serving the Evergreen Park community. Just like our other locations, our Evergreen Park doctors office is staffed with a highly-qualified primary care physician and family doctor ready to serve you.'],
-      servicesHeading:'Services We Offer',
+      servicesHeading:'Services We Offer — Primary Care for Adults in Evergreen Park',
       servicesParas:['Our Evergreen Park clinic provides comprehensive primary care for adults, including women\u2019s health and same-day care services, with personalized treatment plans for each patient.'],
       accordions:[
         {title:'We offer:', items:['Primary care','Women\u2019s Health services','Same-Day Care services','Medical Weight Loss','Treatment plans']},
@@ -1045,6 +1061,15 @@ class Component extends DCLogic {
         'Accessibility is an ongoing effort, and some content (such as older PDF forms) may not yet be fully accessible. If you have difficulty using any part of this website or need materials in an alternative format, we will gladly help.' ]},
       { h:'Tell Us', ps:[
         'Call 708-671-1500 (General) or 708-696-1311 (Orland Park), or ask at any front desk, and we will provide the information you need and work to fix the issue. Every service and appointment is always available by phone.' ]}
+    ]},
+    'faq': { title:"Frequently Asked Questions", sub:"Healthonomic Primary Care · Orland Park & Evergreen Park, IL", updated:"Updated: September 2026", sections:[
+      { h:"How do I book a video (e-visit) or in-person visit?", ps:[ "Schedule through the LiveWell (MyChart) patient portal at livewell.aah.org, or call the office directly: Orland Park 708-696-1311 or Evergreen Park 708-671-1500." ]},
+      { h:"Are same-day appointments available?", ps:[ "Yes. Healthonomic Primary Care offers same-day appointments and extended hours at all three offices, including select Saturday hours in Orland Park and Evergreen Park." ]},
+      { h:"What insurance do you accept?", ps:[ "We accept Aetna, Blue Cross Blue Shield of Illinois, Cigna, Devoted Health, Humana, UnitedHealthcare, and Original Medicare. Participation varies by plan, so please contact us to verify your coverage." ]},
+      { h:"Is language help available?", ps:[ "Yes. Free language assistance is available, including Spanish, Polish, and Greek. Call 708-671-1500 to request it." ]},
+      { h:"Do you offer video visits or e-visits?", ps:[ "Yes. E-visits (video visits) are available for many types of appointments. Start one from the website or through the LiveWell (MyChart) portal." ]},
+      { h:"Is there a patient portal?", ps:[ "Yes. LiveWell (MyChart) at livewell.aah.org is our patient portal. Use it to book appointments, message your care team, view results, and make payments." ]},
+      { h:"Where are your offices located?", ps:[ "Orland Park: 16535 106th CT, Suite A-3, Orland Park, IL 60467 (708-696-1311). Palos Heights: 12050 South Harlem Ave, Suite A, Palos Heights, IL 60463 (708-671-1500). Evergreen Park: 9401 S Pulaski Rd, Suite 101, Evergreen Park, IL 60805 (708-671-1500)." ]}
     ]}
   }; }
 
@@ -1103,7 +1128,10 @@ class Component extends DCLogic {
       cs.hasAccordion = !!cs.accordion;
       if(cs.accordion){ cs.accordion = Object.assign({}, cs.accordion, this.acc('svc-'+cs.slug, cs.accordion.items)); }
       cs.hasBlocks = !!(cs.blocks && cs.blocks.length);
-      cs.hasOffices = !!(cs.offices && cs.offices.length);
+      cs.officesHeading = cs.label + ' in Orland Park, Palos Heights & Evergreen Park';
+      cs.officesIntro = 'We offer ' + cs.label + ' at all three Healthonomic Primary Care offices in the southwest suburbs of Chicago. Same-day appointments are available. Choose the location closest to you:';
+      cs.offices = this.LOCATIONS.map(l=>({ name:l.name, href:'#/location/'+l.slug, address:l.address, hoursSummary:l.hours.filter(h=>h.indexOf('Sun')!==0).join(' \u00b7 '), phone:l.phone, phoneHref:l.phoneHref }));
+      cs.hasOffices = true;
       cs.hasClosing = !!cs.closing;
       cs.banner = this.res(cs.banner);
     }
@@ -1112,10 +1140,12 @@ class Component extends DCLogic {
     let loc = this.LOCATIONS.find(l=>l.slug===locSlug);
     if(loc){
       loc = Object.assign({}, loc);
-      loc.accordions = (loc.accordions||[]).map((a,i)=>{ const o=Object.assign({}, a, this.acc('loc-'+loc.slug+'-'+i, a.items)); const L={'Medical Weight Loss':'/weight-loss/'}; o.items=(o.items||[]).map(t=>{ const h=L[t]||''; return {label:t, href:h, plain:!h}; }); return o; });
+      loc.accordions = (loc.accordions||[]).map((a,i)=>{ const o=Object.assign({}, a, this.acc('loc-'+loc.slug+'-'+i, a.items)); const L={'Medical Weight Loss':'/weight-loss/','Primary care':'/service/primary-care/','Women\u2019s Health services':'/service/womens-health/','Diabetes':'/service/diabetes/','Asthma':'/service/asthma/','Arthritis':'/service/arthritis/','COPD':'/service/copd/','Blood Pressure':'/service/blood-pressure/','Heart Disease':'/service/heart-disease/','Gout':'/service/gout/','Colitis':'/service/colitis/'}; o.items=(o.items||[]).map(t=>{ const h=L[t]||''; return {label:t, href:h, plain:!h}; }); return o; });
       loc.hasDirections = !!(loc.directions && loc.directions.length);
       loc.nextHref = loc.next ? '#/location/'+loc.next.slug : null;
       loc.nextLabel = loc.next ? loc.next.label : null;
+      loc.serviceLinks = this.SERVICES.map(s=>({label:s.label, href:'#/service/'+s.slug})).concat([{label:'Medical Weight Loss', href:'#/weight-loss'}]);
+      loc.hasServiceLinks = true;
       loc.banner = this.res(loc.banner);
     }
 
@@ -1127,11 +1157,11 @@ class Component extends DCLogic {
     const isBlogPost = route.indexOf('blog/')===0;
     const postSlug = isBlogPost ? route.substring(5) : null;
     const allPosts = this.state.blogPosts || [];
-    const PER = 9;
+    const PER = 40;
     const totalBlogPages = Math.max(1, Math.ceil((allPosts.length||1)/PER));
     const bp = Math.min(this.state.blogPage||0, totalBlogPages-1);
     const blogCards = allPosts.slice(bp*PER, bp*PER+PER).map(p=>({
-      title:p.title, excerpt:p.excerpt, date:p.date, href:'#/blog/'+p.slug,
+      title:p.title, excerpt:p.excerpt, date:p.date, dateIso:this.isoDate(p.date), href:'#/blog/'+p.slug,
       image:this.res(p.image||''), hasImage:!!p.image, noImage:!p.image
     }));
     const blogPager = {
@@ -1154,7 +1184,7 @@ class Component extends DCLogic {
         const older = idx<allPosts.length-1 ? allPosts[idx+1] : null;
         if(p.image) blogPostBanner = p.image;
         currentPost = {
-          title:p.title, date:p.date, excerpt:p.excerpt,
+          title:p.title, date:p.date, dateIso:this.isoDate(p.date), excerpt:p.excerpt,
           image:this.res(p.image||''), hasImage:!!p.image,
           hasBody:!!p.body, pending:!p.body, notFound:false,
           bodyEl: p.body ? React.createElement('div',{ dangerouslySetInnerHTML:{ __html:this.resHtml(p.body) } }) : null,
@@ -1234,13 +1264,13 @@ class Component extends DCLogic {
       isForms: route==='forms',
       formsGridCols: isMobile ? 'repeat(2,1fr)' : (isTablet ? 'repeat(3,1fr)' : 'repeat(4,1fr)'),
       formsList: [
-        {label:'Chair Exercises',           icon:this.res('/assets/forms/icon-chair.png'),          pdf:this.res('/assets/forms/chair-exercises.pdf')},
-        {label:'Healthy Meals',             icon:this.res('/assets/forms/icon-meals.png'),          pdf:this.res('/assets/forms/healthy-meals.pdf')},
-        {label:'Blood Sugar Log',           icon:this.res('/assets/forms/icon-bloodsugar.png'),     pdf:this.res('/assets/forms/blood-sugar-log.pdf')},
-        {label:'Behavioral Resources',      icon:this.res('/assets/forms/icon-behavioral.png'),     pdf:this.res('/assets/forms/behavioral-resources.pdf')},
-        {label:'Sun Safety',                icon:this.res('/assets/forms/icon-sun.png'),            pdf:this.res('/assets/forms/sun-safety.pdf')},
-        {label:'Blood Pressure Log',        icon:this.res('/assets/forms/icon-bloodpressure.png'),  pdf:this.res('/assets/forms/blood-pressure-log.pdf')},
-        {label:'Daily Medication Log',      icon:this.res('/assets/forms/icon-medication.png'),     pdf:this.res('/assets/forms/daily-medication-log.pdf')}
+        {label:'Chair Exercises',           icon:this.res('/assets/forms/icon-chair.webp'),          pdf:this.res('/assets/forms/chair-exercises.pdf')},
+        {label:'Healthy Meals',             icon:this.res('/assets/forms/icon-meals.webp'),          pdf:this.res('/assets/forms/healthy-meals.pdf')},
+        {label:'Blood Sugar Log',           icon:this.res('/assets/forms/icon-bloodsugar.webp'),     pdf:this.res('/assets/forms/blood-sugar-log.pdf')},
+        {label:'Behavioral Resources',      icon:this.res('/assets/forms/icon-behavioral.webp'),     pdf:this.res('/assets/forms/behavioral-resources.pdf')},
+        {label:'Sun Safety',                icon:this.res('/assets/forms/icon-sun.webp'),            pdf:this.res('/assets/forms/sun-safety.pdf')},
+        {label:'Blood Pressure Log',        icon:this.res('/assets/forms/icon-bloodpressure.webp'),  pdf:this.res('/assets/forms/blood-pressure-log.pdf')},
+        {label:'Daily Medication Log',      icon:this.res('/assets/forms/icon-medication.webp'),     pdf:this.res('/assets/forms/daily-medication-log.pdf')}
       ],
 
       currentService: cs || null,
@@ -1312,6 +1342,89 @@ class Component extends DCLogic {
   })[r]||''; }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  "name": "Maria Lentzou, MD",
+  "medicalSpecialty": "InternalMedicine",
+  "knowsLanguage": [
+    "English",
+    "Greek",
+    "Spanish"
+  ],
+  "worksFor": {
+    "@type": "MedicalOrganization",
+    "name": "Healthonomic Primary Care"
+  },
+  "url": "https://healthonomic.com/about-our-doctors/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  "name": "Yesenia Bahena, MD",
+  "medicalSpecialty": "FamilyMedicine",
+  "worksFor": {
+    "@type": "MedicalOrganization",
+    "name": "Healthonomic Primary Care"
+  },
+  "url": "https://healthonomic.com/about-our-doctors/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  "name": "Theresa Malinowski, FNP-BC",
+  "medicalSpecialty": "FamilyMedicine",
+  "worksFor": {
+    "@type": "MedicalOrganization",
+    "name": "Healthonomic Primary Care"
+  },
+  "url": "https://healthonomic.com/about-our-doctors/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  "name": "Lena Charles, MSN, APRN, FNP-BC, CCM",
+  "medicalSpecialty": "FamilyMedicine",
+  "worksFor": {
+    "@type": "MedicalOrganization",
+    "name": "Healthonomic Primary Care"
+  },
+  "url": "https://healthonomic.com/about-our-doctors/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  "name": "Ewelina Tatar, MSN, APRN, FNP-C",
+  "medicalSpecialty": "FamilyMedicine",
+  "worksFor": {
+    "@type": "MedicalOrganization",
+    "name": "Healthonomic Primary Care"
+  },
+  "url": "https://healthonomic.com/about-our-doctors/"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  "name": "Zaneta Wojas, MSN, FNP-BC, FNP-C",
+  "medicalSpecialty": "FamilyMedicine",
+  "worksFor": {
+    "@type": "MedicalOrganization",
+    "name": "Healthonomic Primary Care"
+  },
+  "url": "https://healthonomic.com/about-our-doctors/"
+}
+</script>
 </head>
 <body>
 <x-dc>
@@ -1329,7 +1442,7 @@ class Component extends DCLogic {
   <header data-dc-tpl="10" style="position: sticky; top: 0px; z-index: 50; background: rgb(255, 255, 255); box-shadow: 0 2px 10px rgba(0,0,0,.08);">
     <div data-dc-tpl="11" style="max-width: 1200px; margin: 0px auto; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
       <a data-dc-tpl="12" href="/" aria-label="Healthonomic Primary Care home" style="display: flex; align-items: center; flex: 0 0 auto;">
-        <img data-dc-tpl="13" src="/assets/uploads/8f088bcb-3768-4525-a524-6778deb7b231.png" alt="Healthonomic Primary Care" style="height: 104px; width: auto; display: block;">
+        <img data-dc-tpl="13" src="/assets/uploads/8f088bcb-3768-4525-a524-6778deb7b231.webp" alt="Healthonomic Primary Care" style="height: 104px; width: auto; display: block;">
       </a>
 
       
@@ -1489,7 +1602,7 @@ class Component extends DCLogic {
           
             <div data-dc-tpl="167" style="background: rgb(247, 248, 250); padding: 34px 32px;">
               <div data-dc-tpl="168" style="display: flex; align-items: flex-start; gap: 22px; flex-wrap: wrap;">
-                <img data-dc-tpl="169" src="/assets/uploads/zaneta-wojas.png" alt="Zaneta Wojas, MSN, FNP-BC, FNP-C" loading="lazy" style="width: 104px; height: 104px; border-radius: 50%; object-fit: cover; background: rgb(221, 227, 234); flex: 0 0 auto;">
+                <img data-dc-tpl="169" src="/assets/uploads/zaneta-wojas.webp" alt="Zaneta Wojas, MSN, FNP-BC, FNP-C" loading="lazy" style="width: 104px; height: 104px; border-radius: 50%; object-fit: cover; background: rgb(221, 227, 234); flex: 0 0 auto;">
                 <div data-dc-tpl="170" style="flex: 1 1 0%; min-width: 150px;">
                   <div data-dc-tpl="171" style="font-size: 20px; font-weight: 500; color: rgb(69, 69, 69);"><span class="sc-interp">Zaneta Wojas, MSN, FNP-BC, FNP-C</span></div>
                   <div data-dc-tpl="172" style="font-style: italic; color: rgb(82, 120, 177); font-size: 15px; margin-top: 4px;"><span class="sc-interp">Family Medicine</span></div>
@@ -1503,7 +1616,7 @@ class Component extends DCLogic {
           
             <div data-dc-tpl="167" style="background: rgb(247, 248, 250); padding: 34px 32px;">
               <div data-dc-tpl="168" style="display: flex; align-items: flex-start; gap: 22px; flex-wrap: wrap;">
-                <img data-dc-tpl="169" src="/assets/uploads/yesenia-bahena.png" alt="Dr. Yesenia Bahena, MD" loading="lazy" style="width: 104px; height: 104px; border-radius: 50%; object-fit: cover; background: rgb(221, 227, 234); flex: 0 0 auto;">
+                <img data-dc-tpl="169" src="/assets/uploads/yesenia-bahena.webp" alt="Dr. Yesenia Bahena, MD" loading="lazy" style="width: 104px; height: 104px; border-radius: 50%; object-fit: cover; background: rgb(221, 227, 234); flex: 0 0 auto;">
                 <div data-dc-tpl="170" style="flex: 1 1 0%; min-width: 150px;">
                   <div data-dc-tpl="171" style="font-size: 20px; font-weight: 500; color: rgb(69, 69, 69);"><span class="sc-interp">Dr. Yesenia Bahena, MD</span></div>
                   <div data-dc-tpl="172" style="font-style: italic; color: rgb(82, 120, 177); font-size: 15px; margin-top: 4px;"><span class="sc-interp">Board-Certified Family Medicine Physician</span></div>
@@ -1570,7 +1683,7 @@ class Component extends DCLogic {
   <footer data-dc-tpl="755">
     <div data-dc-tpl="756" style="background: rgb(16, 40, 73); padding: 34px 20px; text-align: center;">
       <a data-dc-tpl="757" href="/" aria-label="Healthonomic Primary Care home" style="display: inline-flex; align-items: center;">
-        <img data-dc-tpl="758" src="/assets/uploads/be030c07-a5d3-4e40-827a-fdbdf82b67f6.png" alt="Healthonomic Primary Care" style="height: 66px; width: auto; display: block;">
+        <img data-dc-tpl="758" src="/assets/uploads/be030c07-a5d3-4e40-827a-fdbdf82b67f6.webp" alt="Healthonomic Primary Care" style="height: 66px; width: auto; display: block;">
       </a>
     </div>
     <div data-dc-tpl="759" style="background: rgb(21, 54, 110); color: rgb(255, 255, 255);">
@@ -1611,6 +1724,7 @@ class Component extends DCLogic {
           <a data-dc-tpl="798" href="/terms/" style="color: rgb(35, 81, 163); font-weight: 500;">Terms of Use &amp; Medical Disclaimer</a>
           <a data-dc-tpl="799" href="/privacy/" style="color: rgb(35, 81, 163); font-weight: 500;">Privacy Policy</a>
           <a data-dc-tpl="800" href="/accessibility/" style="color: rgb(35, 81, 163); font-weight: 500;">Accessibility</a>
+          <a data-dc-tpl="800" href="/faq/" style="color: rgb(35, 81, 163); font-weight: 500;">FAQ</a>
           <a data-dc-tpl="801" href="/insurance-providers/" style="color: rgb(35, 81, 163); font-weight: 500;">Accepted Insurance</a>
         </div>
         <div data-dc-tpl="802" style="font-size: 13px;">Healthonomic Primary Care © 2026 All Rights Reserved</div>

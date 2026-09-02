@@ -17,7 +17,7 @@
   var DISC = 'font-size:13px;color:#9aa3af;line-height:1.7;border-top:1px solid #eee;margin-top:34px;padding-top:20px;';
 
   B['summer-heat-chronic-conditions'] = {
-    image: '/assets/uploads/june-summerheat-blog.png',
+    image: '/assets/uploads/june-summerheat-blog.webp',
     body: `
 <p style="font-style:italic;color:#5278B1;font-size:18px;margin:0 0 22px;">&ldquo;More Good Days, Together&rdquo; &ndash; Mental Health America 2026 | Summer Edition</p>
 <h2>That Summer Fatigue, Dizziness, and Shortness of Breath? It&rsquo;s Not Just the Heat.</h2>
@@ -142,7 +142,7 @@
   };
 
   B['mental-health-affects-your-physical-health'] = {
-    image: '/assets/uploads/may-26-newsletter-banner.png',
+    image: '/assets/uploads/may-26-newsletter-banner.webp',
     body: `
 <p><em>How mental health affects your overall wellbeing, what the physical signs look like, and how your primary care team at Healthonomic can help &ndash; this Mental Health Awareness Month and beyond.</em></p>
 <p style="font-size:14px;color:#9aa3af;">Published: May 2026 | Mental Health Awareness Month 2026 | Serving: Orland Park, Evergreen Park &amp; Palos Heights, IL | Reading time: ~8 minutes</p>
@@ -227,7 +227,7 @@
   };
 
   B['outdoor-movement-most-underrated-health-tools'] = {
-    image: '/assets/uploads/april-26-blog.png',
+    image: '/assets/uploads/april-26-blog.webp',
     body: `
 <p><em>Discover why regular outdoor walking supports heart health, blood sugar, stress, and sleep.</em></p>
 <p>When patients think about improving their health, they often picture intensive workouts or restrictive diet plans. However, one of the most evidence-supported and sustainable interventions is much simpler: regular outdoor movement.</p>
@@ -289,7 +289,7 @@
   };
 
   B['the-gut-kidney-connection'] = {
-    image: '/assets/uploads/march-blog-26.png',
+    image: '/assets/uploads/march-blog-26.webp',
     body: `
 <p style="font-size:13px;font-weight:700;letter-spacing:1px;color:#5278B1;text-transform:uppercase;margin:0 0 18px;">Healthonomic | Longevity &amp; Wellness Blog | March 2026 &middot; National Nutrition Month</p>
 <p>Most of us don&rsquo;t spend a lot of time thinking about our gut and kidneys until something goes wrong. But here&rsquo;s what&rsquo;s interesting: these two systems are in constant communication, quietly working together every single day to keep your body in balance.</p>
@@ -353,7 +353,7 @@
   };
 
   B['5-ways-to-love-your-heart-that-involve-going-outside-more'] = {
-    image: '/assets/uploads/feb-26-blog.png',
+    image: '/assets/uploads/feb-26-blog.webp',
     body: `
 <p><em>Simple, enjoyable habits for heart wellness this American Heart Month and beyond.</em></p>
 <p>When you think about heart health, images of endless cardio and strict salads might immediately pop into your head. For many, the idea of &ldquo;heart-healthy living&rdquo; feels daunting &ndash; leading to overwhelm instead of action.</p>
@@ -394,7 +394,7 @@
   };
 
   B['getting-back-on-track-after-the-holidays-and-post-holiday-stress'] = {
-    image: '/assets/uploads/Gemini_Generated_Image_bbl2subbl2subbl2-e1767987362998.png',
+    image: '/assets/uploads/Gemini_Generated_Image_bbl2subbl2subbl2-e1767987362998.webp',
     body: `
 <p>The holidays are filled with connection, celebration, and tradition, but they can also throw our routines off balance. Between late nights, indulgent meals, packed schedules, and added stress, many people find themselves asking the same question once the season winds down:</p>
 <p style="font-size:21px;font-weight:600;color:#15366E;">&ldquo;Is my health still on track?&rdquo;</p>
@@ -741,7 +741,7 @@
   };
 
   B['8-healthy-foods-that-are-actually-bad-for-you'] = {
-    image: '/assets/uploads/ProteinBarsIllinois.jpeg',
+    image: '/assets/uploads/ProteinBarsIllinois.webp',
     body: `
 <p>When choosing foods for a healthier diet, it is important for you to actually look at the ingredients and nutrients. It&rsquo;s easy to be fooled by foods that come off as nutritious when in reality, they could do more bad than good for you. We&rsquo;ve compiled a list of foods to avoid as well as healthier alternatives to help you start making healthier choices!</p>
 <div style="${CTA}"><em>If you&rsquo;re ready to live your life to the fullest, then give our doctor&rsquo;s office a call at <a href="tel:7086711500">(708) 671-1500</a> to get started!</em></div>
@@ -1303,7 +1303,7 @@
   };
 
   B['five-lifestyle-changes-to-help-with-high-blood-pressure'] = {
-    image: '/assets/uploads/HELTHO-1-1536x772.png',
+    image: '/assets/uploads/HELTHO-1-1536x772.webp',
     body: `
 <p>We hear about high blood pressure a lot. That&rsquo;s because many Americans suffer from the condition. The American Heart Association estimates that about 103 million Americans are at risk for heart attacks and strokes. People from all walks of life suffer from the condition for various reasons. And yet, there are often common lifestyle patterns that emerge among many patients. We thought we&rsquo;d take a look at some lifestyle changes people can make that may help in reducing risks while mitigating the likelihood of high blood pressure and cardiac arrest.</p>
 <h2>A Brief History of Hypertension</h2>
@@ -1376,7 +1376,7 @@
   };
 
   B['why-you-should-consider-converting-to-a-vegan-lifestyle'] = {
-    image: '/assets/uploads/AdobeStock_320398572-1536x518.jpeg',
+    image: '/assets/uploads/AdobeStock_320398572-1536x518.webp',
     body: `
 <p>For those who have tried and failed to convert to a vegan lifestyle, they can easily say that it is one of the hardest challenges anyone can take. As children, we are accustomed to consuming meat, vegetables, dairy products, and grains. Each should be distributed fairly, but that is not usually the case. All too often, people eat too much meat, which can lead to countless health concerns. A great way to live a happier, healthier life is by embarking on a vegan lifestyle change. It may sound lofty, but it&rsquo;s doable!</p>
 <p>A vegan diet is a part of a lifestyle that excludes the consumption or use of any products that come from animals. Some people may think this is an extreme attempt at leading a healthy lifestyle, but there are plenty of benefits that come with a vegan diet. Vegan food choices are low in saturated fats and are rich in nutrients, which is what our bodies need. If you&rsquo;re thinking about taking up a vegan diet, we support you! Although, there are some important things to know prior to vegan meal planning, and thankfully, we have all the information for you.</p>
