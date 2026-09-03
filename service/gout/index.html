@@ -704,7 +704,7 @@ class Component extends DCLogic {
       'Having spent part of her childhood in Spain, Lena is Spanish speaking and enjoys working with people from diverse backgrounds. She has done extensive volunteer work within refugee communities which has deepened her commitment to providing compassionate care. She has a special clinical interest in the use of diet, nutrition, and exercise to help manage and prevent chronic disease, and is dedicated to fostering strong relationships with her patients.',
       'Outside of her work in primary care, Lena has been a lifelong dancer: beginning with ballet and tap, expanding into jazz, and later exploring ballroom and social styles. She continues to share her love of movement through teaching Zumba and kickboxing. Lena is also an avid snowboarder and cyclist. She resides in Chicago with her family and their french bulldog, Guapo.' ]},
     { name:'Ewelina Tatar, MSN, APRN, FNP-C', specialty:'Family Medicine', img:this.IMG+'Ewelina_2.webp', bio:[
-      'Ewelina Tatar, MSN, APRN, FNP-C, is a board-certified Family Nurse Practitioner providing comprehensive primary care to adult and pediatric patients. She earned her Master of Science in Nursing from Bradley University and brings experience from both outpatient primary care and hospital-based settings.',
+      'Ewelina Tatar, MSN, APRN, FNP-C, is a board-certified Family Nurse Practitioner providing comprehensive primary care to adult patients. She earned her Master of Science in Nursing from Bradley University and brings experience from both outpatient primary care and hospital-based settings.',
       'Ewelina focuses on preventive care, chronic disease management, and acute illness treatment, with an emphasis on patient education and collaborative decision-making. Her clinical background spans primary care, internal medicine, women\u2019s health, and acute care, allowing her to support patients through both routine visits and more complex health concerns.',
       'She is known for her compassionate, thoughtful approach and for building strong, long-term relationships with her patients. Ewelina is fluent in Polish and conversational in Spanish, helping Healthonomic serve a diverse community with culturally responsive care.' ]},
     { name:'Zaneta Wojas, MSN, FNP-BC, FNP-C', specialty:'Family Medicine', img:this.IMG+'zaneta-wojas.webp', bio:[
@@ -753,7 +753,6 @@ class Component extends DCLogic {
       {label:'Gout', route:'service/gout'},
       {label:'Colitis', route:'service/colitis'},
       {label:'Physicals', route:'service/physicals'},
-      {label:'Sports Physicals', route:'service/sports-physicals'},
       {label:'Minor Wound Care', route:'service/wound-care'},
       {label:'Wellness Check-Ups', route:'service/check-ups'},
       {label:'Internal Medicine', route:'service/internal-medicine'} ]},
@@ -768,7 +767,7 @@ class Component extends DCLogic {
     { label:'Contact', route:'contact' }
   ]; }
 
-  get CHAIN(){ return [['asthma','Asthma'],['arthritis','Arthritis'],['diabetes','Diabetes'],['copd','COPD'],['blood-pressure','Blood Pressure'],['heart-disease','Heart Disease'],['womens-health',"Women's Health"],['gout','Gout'],['colitis','Colitis'],['physicals','Physicals'],['wound-care','Minor Wound Care'],['check-ups','Wellness Check-Ups'],['internal-medicine','Internal Medicine'],['primary-care','Primary Care'],['covid-19-testing','COVID-19 Testing'],['sports-physicals','Sports Physicals']]; }
+  get CHAIN(){ return [['asthma','Asthma'],['arthritis','Arthritis'],['diabetes','Diabetes'],['copd','COPD'],['blood-pressure','Blood Pressure'],['heart-disease','Heart Disease'],['womens-health',"Women's Health"],['gout','Gout'],['colitis','Colitis'],['physicals','Physicals'],['wound-care','Minor Wound Care'],['check-ups','Wellness Check-Ups'],['internal-medicine','Internal Medicine'],['primary-care','Primary Care'],['covid-19-testing','COVID-19 Testing']]; }
 
   get WEIGHTLOSS_CARDS(){ return [
     {n:1,title:'Expert Medical Supervision',body:"Led by licensed medical doctors and nurse practitioners, your weight loss journey is medically supervised and personalized. Our team will guide you every step of the way, creating a plan that's tailored to your unique needs and goals."},
@@ -868,7 +867,7 @@ class Component extends DCLogic {
       intro:['As a primary care clinic, we know that preventative care is key to a long and healthy life. That\u2019s why we offer yearly physicals to help you stay on top of your health.','The importance and need for the physical exam vary by age, but staying consistent with your yearly visit helps your physician track your health over time.'],
       qa:[
         {q:'Physicals are also good for:', a:[], bullets:['Establishing a relationship with your physician','Consistency and continuity of medical records','Intimate health care']},
-        {q:'The Purpose of the Yearly Physical / A Yearly Tracker of Your Health', a:['Healthonomic Primary Care offers physicals for a variety of purposes.'], bullets:['Youth sports','Employment requirements','Yearly check-ups','General health screenings']},
+        {q:'The Purpose of the Yearly Physical / A Yearly Tracker of Your Health', a:['Healthonomic Primary Care offers physicals for a variety of purposes.'], bullets:['Employment requirements','Yearly check-ups','General health screenings']},
         {q:'What Does the Yearly Physical Consist Of?', a:['Typically a yearly physical will consist of the following: a survey of updated health problems or issues; vital signs such as blood pressure and heart rate; external checks of the eyes, abdomen, chest, musculoskeletal system, and nervous system functions; and physical signs including listening to the lungs, touching the abdomen, checking motor functions and reflexes, and checking skin, hair, and nails.']}
       ],
       blocks:[
@@ -925,9 +924,9 @@ class Component extends DCLogic {
         {q:'Why Is it Important to Have a Physician?', a:['Having a physician is essential for your overall health. Our physicians will get to know you, your medical history, your conditions, and your lifestyle. Having an experienced physician familiar with your medical record will assist in the event of an emergency or if there is a major issue. At the same time, your primary care physician will help guide your healthcare and help with your overall health and wellness.','Our physicians can help with vaccinations and conduct your annual exams, sick visits, and follow-up appointments. We can also help with chronic disease management, women\u2019s health concerns, and diagnostic testing.']},
         {q:'Primary Care Services Provided at Healthonomic', a:['As a full-service primary care clinic, our physicians provide a wide range of services to keep you and your family healthy.']}
       ],
-      accordion:{title:'Some of our major services include but are not limited to:', items:['Vaccinations','Annual checkups','Sports physicals','Electrocardiograms (EKG)','Diagnostic testing','COPD diagnosis and treatment','Diabetes diagnosis and treatment','Arthritis','Blood pressure issues','Heart disease diagnosis and treatment','Women\u2019s health','Family medicine','Internal health']},
+      accordion:{title:'Some of our major services include but are not limited to:', items:['Vaccinations','Annual checkups','Electrocardiograms (EKG)','Diagnostic testing','COPD diagnosis and treatment','Diabetes diagnosis and treatment','Arthritis','Blood pressure issues','Heart disease diagnosis and treatment','Women\u2019s health','Family medicine','Internal health']},
       extraQa:[
-        {q:'Our Patients:', a:['While we are not a pediatric clinic, we are able to care for some children for minor issues. Our clinic mostly treats adult patients but welcomes everyone including seniors and the elderly.']},
+        {q:'Our Patients:', a:['Our clinic treats adult patients and welcomes everyone including seniors and the elderly.']},
         {q:'The Healthonomic Primary Care Difference Sets Us Apart', a:['Some of the advantages of coming to our clinics include:']}
       ],
       blocks:[
@@ -951,21 +950,7 @@ class Component extends DCLogic {
         {q:'How to Schedule an Appointment', a:['Our clinic is taking all precautions. You contact our clinic to learn more and schedule your appointment.']},
         {q:'How Long Will it Take to Get Results?', a:['It takes approximately twenty-four hours for your test to be sent to a lab and processed, depending on the test.']},
         {q:'If You Have Any Questions or Concerns, Give us a Call', a:["With the confusion surrounding COVID-19, we want to be your source of clarity. Don't hesitate to contact us today."]}
-      ] },
-
-    { slug:'sports-physicals', label:'Sports Physicals', banner:I+'AdobeStock_386337735.webp', eyebrow:'Sports Physicals', h1:'For Student-Athletes in Cook County, IL',
-      intro:['One of the best ways for children to stay healthy is to stay active with sports and other activities. Healthonomic Primary Care offers sports physicals to make sure kids stay healthy as they play.','If your little one is getting ready for another superstar season, Healthonomic Primary Care can provide sports physicals to clear them for play. Contact us today to schedule your child\u2019s physical!'],
-      qa:[
-        {q:'What to Know Before The Visit', a:['There are minimal preparations for the vast majority of exams.']},
-        {q:'What to Expect During A Sports Physical', a:['Sports physicals involve the following:'], bullets:['Vision test','Blood pressure and pulse test','Height and weight recording','Posture and fitness evaluation','Organ function checks (heart, lungs, throat, etc.)','Questions on medical history']},
-        {q:'Preparing for a Sports Physical', a:['The preparation for a sports physical is typically very minor. The exam usually lasts between 20\u201330 minutes.']},
-        {q:'The Benefits of Sports Physicals', a:['A sports physical helps ensure your child is healthy enough to participate safely and can catch potential issues early.']},
-        {q:'Sports Physicals FAQs', a:['What is the difference between a sports physical and a physical exam? How often does my child need a sports physical? Can a regular physical be used as a sports physical (often required in 6th and 9th grade)? What if my child does not pass the sports physical? Our team is happy to answer all of these.']}
-      ],
-      blocks:[
-        {title:'Compassionate Care',body:"We take our responsibility to you very seriously. When you walk through our doors, you'll find a team of physicians and staff driven by the impulse to help others."}
-      ],
-      closing:{title:'Contact Healthonomic Primary Care, Today!', body:['Schedule your child\u2019s sports physical with our experienced and compassionate team today.']} }
+      ] }
   ]; }
 
   get LOCATIONS(){ const I=this.IMG; return [

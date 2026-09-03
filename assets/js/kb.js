@@ -81,7 +81,6 @@
     doctor: 'provider physician staff clinician practitioner lentzou', provider: 'doctor physician staff clinician',
     physician: 'doctor provider staff', weight: 'loss semaglutide ozempic medication slim',
     portal: 'login account livewell mychart record', emergency: 'urgent 911 ambulance immediate',
-    kid: 'child children pediatric family', child: 'children pediatric kid family',
     telehealth: 'evisit virtual video online remote', evisit: 'telehealth virtual video online remote',
     covid: 'coronavirus testing rapid test vaccine', form: 'paperwork document download patient',
     walkin: 'same day urgent appointment'

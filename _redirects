@@ -73,6 +73,9 @@
 # (/location/orland-park/ etc.) are real files, and Netlify serves an existing
 # file over a non-forced redirect, so they are unaffected. Do not add a ! flag.
 /location/* /locations/ 301
+# Retired service page (sports physicals, removed 2026-09-03)
+/service/sports-physicals/ /service/physicals/ 301
+/service/sports-physicals /service/physicals/ 301
 # Old blog category archives + feeds -> blog index
 /category/* /blog/ 301
 /comments/feed/ /blog/ 301
