@@ -8,6 +8,12 @@
  */
 (function () {
   var POSTS = [
+    { slug: 'flu-shot-in-orland-park-il',
+      title: 'When Should You Get Your Flu Shot This Year?',
+      date: 'October 4, 2026',
+      excerpt: 'The best time to get a flu shot in Orland Park, IL is early fall. Here\u2019s why timing matters most for adults managing diabetes, COPD, or heart disease, and how same-day appointments make it easy.',
+      image: null, body: null },
+
     { slug: 'walking-trails-near-orland-park-palos-heights-evergreen-park',
       title: 'Walking Trails Close to Home: A Local Guide to Moving More This Fall',
       date: 'August 5, 2026',
