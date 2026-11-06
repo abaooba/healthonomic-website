@@ -8,6 +8,12 @@
  */
 (function () {
   var POSTS = [
+    { slug: 'diabetes-management-in-evergreen-park-il',
+      title: 'Keeping Your Blood Sugar in Check Through the Holidays',
+      date: 'November 6, 2026',
+      excerpt: 'November is National Diabetes Month \u2014 a good nudge to schedule an A1C test and build small habits that make holiday season easier on your blood sugar.',
+      image: null, body: null },
+
     { slug: 'flu-shot-in-orland-park-il',
       title: 'When Should You Get Your Flu Shot This Year?',
       date: 'October 4, 2026',
