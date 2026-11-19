@@ -1,2 +1,2 @@
-/assets/forms/*
-  X-Robots-Tag: noindex
+# Netlify custom headers.
+# The form PDFs under /assets/forms/ are intentionally indexable (Nov 2026).
